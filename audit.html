@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue System Audit - $297 | Revenue Funnels Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a1a2e;
+            --purple: #7C3FFF;
+            --light-purple: #a78bfa;
+            --white: #ffffff;
+            --cream: #fdfbf7;
+            --text: #2a2a2a;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(124, 63, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 3rem;
+            background: linear-gradient(135deg, #2d2d44 0%, #1a1a2e 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #d1d5db;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 3rem;
+        }
+
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin: 3rem 0 1.5rem;
+        }
+
+        .content h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin: 2rem 0 1rem;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .content ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--purple) 0%, #9b6dff 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-box h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: white;
+            color: var(--purple);
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: transform 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .testimonial {
+            background: #f9fafb;
+            padding: 2.5rem;
+            border-left: 4px solid var(--purple);
+            margin: 3rem 0;
+            border-radius: 8px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #333;
+        }
+
+        .testimonial-author {
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        .about-box {
+            display: flex;
+            gap: 2rem;
+            align-items: start;
+            background: #f9fafb;
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+
+        .about-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--purple);
+        }
+
+        .about-box-content {
+            flex: 1;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e5e5e5;
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            .about-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Revenue Funnels</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="consultancy.html">Done-For-You</a></li>
+                <li><a href="coaching.html">Done-With-You</a></li>
+                <li><a href="audit.html">Revenue Audit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Your leads aren't the problem. Your system is.</h1>
+        <p>Get a complete revenue system audit for $297</p>
+    </section>
+
+    <div class="content">
+        <p>You're showing up. You're visible. You're doing the work and people are interested.</p>
+        
+        <p>But when it comes to actually converting that interest into consistent revenue? Something's not clicking.</p>
+        
+        <p>And the frustrating thing is, doing <em>more</em> won't fix it. More content, more visibility, more traffic flowing into a broken buyer journey just amplifies the problem.</p>
+        
+        <p><strong>What's missing isn't effort. It's structure.</strong><br>
+        There's a gap somewhere in your positioning, your messaging, or your buyer journey — and until you find it, sales will keep feeling unpredictable no matter how hard you work.</p>
+        
+        <p>That's exactly what the Revenue System Audit is for.</p>
+
+        <h2>After the Revenue System Audit, you'll know:</h2>
+        <ul>
+            <li>Why your current offer isn't converting consistently — even if your work is exceptional</li>
+            <li>What's confusing buyers on your site, socials, or funnel and quietly costing you sales</li>
+            <li>Where you're losing qualified leads and how to stop the leak</li>
+            <li>What to simplify so your marketing finally starts doing its job</li>
+        </ul>
+
+        <h2>This is for you if…</h2>
+        <ul>
+            <li>You're doing solid work but revenue still feels unpredictable</li>
+            <li>Your marketing feels scattered even though you're consistently visible</li>
+            <li>You've got multiple services or offers and the messaging has gotten messy</li>
+            <li>You're ready for a clear, actionable plan that turns attention into paying clients</li>
+        </ul>
+
+        <h2>This isn't for you if…</h2>
+        <ul>
+            <li>You want a full funnel built for the price of an audit</li>
+            <li>You're still validating your first offer</li>
+            <li>You're not willing to change what isn't working</li>
+        </ul>
+
+        <hr>
+
+        <h2>What you get:</h2>
+
+        <h3>1. A Loom Video Audit (30–45 minutes)</h3>
+        <p>I go through your entire buyer journey and show you exactly what's working, what's leaking, and what I'd change immediately. No fluff — just clear, specific feedback on your actual business.</p>
+
+        <h3>2. A 2-Page Revenue Roadmap (PDF)</h3>
+        <p>A simple, prioritised action plan with quick wins for this week, core fixes for the next 30 days, and the strategic shift that moves the needle over the next 90 days.</p>
+
+        <h3>3. Strategic Shift Recommendations</h3>
+        <p>The exact moves to take your revenue from inconsistent to predictable — based on where you want to be in six months from now.</p>
+
+        <hr>
+
+        <h2>But, hey… who am I?</h2>
+
+        <div class="about-box">
+            <img src="katy-audit.jpg" alt="Katy">
+            <div class="about-box-content">
+                <p>I'm Katy, a funnel and revenue strategist for agency founders, coaches and course creators who are tired of inconsistent sales.</p>
+                <p>Over the past 5 years I've worked with businesses selling programs and services between $2k and $5k, helping them diagnose why their funnels and offers weren't converting.</p>
+                <p>At the core of my work is clarity and predictability, meaning no scattered tactics. My focus is on a buyer journey that converts into predictable revenue for your business. If that's what you need right now, your next step is below.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>The 4 Areas I Diagnose in Revenue Systems:</h2>
+
+        <h3>1. Offer & Positioning</h3>
+        <p>Is the promise clear, differentiated, and aligned with the buyer's problem?</p>
+
+        <h3>2. Buyer Journey</h3>
+        <p>How prospects move from discovering you to becoming a paying client.</p>
+
+        <h3>3. Conversion Points</h3>
+        <p>Your homepage, sales page, CTAs, and booking flow.</p>
+
+        <h3>4. Nurture & Trust Building</h3>
+        <p>Email sequences, content, and messaging that move buyers toward a decision.</p>
+
+        <h2>What I'll assess:</h2>
+        <p>Depending on what you have in place, I'll review your positioning and offer promise, your homepage and key pages or sales page, your lead gen and CTA structure, nurture emails if applicable, your call booking and conversion flow, and your messaging clarity on LinkedIn or Instagram.</p>
+
+        <h2>How to book your audit:</h2>
+        <ol>
+            <li>Secure your Revenue System Audit by clicking the link below and make a payment.</li>
+            <li>After your payment, you'll find my Calendly link to book your first assessment call.</li>
+            <li>During the assessment call, I'll review your business messaging, funnels, systems and revenue goals. You share your relevant links and assets.</li>
+            <li>Within 5 working days, you'll receive your detailed Loom audit and customized revenue roadmap.</li>
+        </ol>
+
+        <hr>
+
+        <h2>What my client says:</h2>
+
+        <div class="testimonial">
+            <p>"Katy is a highly experienced funnel strategist with a real eye for positioning and spotting messaging gaps that most people simply miss.</p>
+            <p>The sales funnel she created for my $2k coaching program is one I still use and it consistently sells out. It's given me predictable income and far more confidence in how we bring clients in.</p>
+            <p>What sets Katy apart is that she doesn't just execute tasks. She thinks deeply about the revenue engine behind the business. If you're looking for someone who understands strategy as well as implementation, she brings that level of thinking to the table."</p>
+            <p class="testimonial-author">— Louise McDonnell, Founder of SellOnSocial.Media</p>
+        </div>
+
+        <div class="cta-box">
+            <h2>Ready to fix what's broken?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Click below to purchase your Revenue System Audit – $297</p>
+            <a href="https://buy.stripe.com/dRmfZi3Epe3j78n0Hs0x203" class="btn-primary">Purchase Audit ($297)</a>
+            <p style="font-size: 0.95rem; margin-top: 2rem; opacity: 0.9;">This audit is designed as a diagnostic starting point, not a full consulting engagement. It helps you identify the biggest structural issue affecting your revenue so you know where to focus first.</p>
+        </div>
+
+        <hr>
+
+        <h2>You Might Still Be Thinking…</h2>
+
+        <h3>"Maybe I just need more leads."</h3>
+        <p>Possibly. But sending more traffic into a misaligned offer or unclear buyer journey won't fix predictability; it will only amplify the inconsistency.</p>
+
+        <h3>"What if the problem isn't the funnel?"</h3>
+        <p>That's exactly what this audit clarifies. Sometimes it's positioning. Sometimes it's messaging. Sometimes it's structure. We get to the bottom of the problem so that you know what to fix.</p>
+
+        <h3>"I don't want theory. I need something practical."</h3>
+        <p>You'll leave with a customized action plan on what to fix, what to refine, and what to shift strategically.</p>
+
+        <h3>"Is this really worth it?"</h3>
+        <p>If your revenue feels unpredictable, one clear structural correction will pay for this audit many times over.</p>
+
+        <hr>
+
+        <div style="text-align: center; padding: 3rem 0;">
+            <h3>Not ready yet? Start with a quick question</h3>
+            <p style="margin-top: 1rem;">
+                <a href="https://www.linkedin.com/in/katyp-evergreen-funnels/" style="color: var(--purple); text-decoration: underline;">Message me on LinkedIn</a> or email: 
+                <a href="mailto:katy@revenuefunnels.online" style="color: var(--purple); text-decoration: underline;">katy@revenuefunnels.online</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
