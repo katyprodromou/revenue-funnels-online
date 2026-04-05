@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultancy - I'll Build Your Funnel | Revenue Funnels Online</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Literata:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a1a2e;
+            --purple: #7C3FFF;
+            --light-purple: #a78bfa;
+            --pale-purple: #e9d5ff;
+            --white: #ffffff;
+            --cream: #fdfbf7;
+            --gray: #e5e5e5;
+            --text: #2a2a2a;
+        }
+
+        body {
+            font-family: 'Literata', serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(124, 63, 255, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 3rem;
+            background: linear-gradient(135deg, var(--navy) 0%, #0f0f1e 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .hero .highlight {
+            color: var(--light-purple);
+            font-style: italic;
+        }
+
+        .hero-subheadline {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            color: var(--gray);
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            font-family: 'Literata', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--purple);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-purple);
+        }
+
+        section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 3rem;
+        }
+
+        .who-section {
+            background: var(--white);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .column h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .column ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .column li {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .column li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--purple);
+            font-weight: bold;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-left: 6px solid var(--purple);
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+
+        .how-section {
+            background: var(--cream);
+        }
+
+        .steps {
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: var(--white);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            border: 1px solid rgba(124, 63, 255, 0.1);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--pale-purple);
+            position: absolute;
+            top: -1.5rem;
+            right: 2rem;
+            line-height: 1;
+        }
+
+        .step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .step p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .testimonials-section {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .testimonials-section .section-title {
+            color: var(--white);
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--purple);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--light-purple);
+            font-weight: 600;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--light-purple) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--purple);
+        }
+
+        .btn-white:hover {
+            background: var(--cream);
+        }
+
+        footer {
+            background: var(--navy);
+            color: var(--gray);
+            padding: 4rem 3rem 2rem;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(124, 63, 255, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Revenue Funnels</a>
+            <ul class="nav-links">
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="coaching.html">Coaching</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>I'll build the funnel that turns your leads into <span class="highlight">consistent sales.</span></h1>
+            <p class="hero-subheadline">If you've got an audience, a proven offer, and revenue that comes in waves — I fix the system that's causing the problem.</p>
+            <a href="#cta" class="btn btn-primary">Get the Free Checklist</a>
+        </div>
+    </section>
+
+    <section class="who-section">
+        <h2 class="section-title">This is for you if:</h2>
+        <div class="two-column">
+            <div class="column">
+                <h3>You're already doing the work</h3>
+                <ul>
+                    <li>You're a service provider or coach with a $2K+ offer</li>
+                    <li>You've got leads coming in, just not enough converting</li>
+                    <li>You make money when you launch, then it drops off</li>
+                    <li>You know your offer works — you just need the system around it to work too</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>But you're not quite here yet:</h3>
+                <ul>
+                    <li>You're just starting out (no audience, no validated offer)</li>
+                    <li>You need more traffic first</li>
+                    <li>You're looking for a quick fix or a DIY template</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">What I actually do</h2>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem; text-align: center;">I go into your business and fix what's broken. Here's what that looks like:</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Audit your funnel</h3>
+                <p>I map your buyer journey from the first time someone finds you to the moment they pay, and I find exactly where they're dropping off.</p>
+            </div>
+            <div class="service-card">
+                <h3">Fix your messaging</h3>
+                <p>I rewrite your messaging so it creates urgency, builds certainty, and speaks to people who are ready now — not "thinking about it."</p>
+            </div>
+            <div class="service-card">
+                <h3>Build the system</h3>
+                <p>I build the email sequences, landing pages, and automation that move people from interested to sold — without you chasing every lead manually.</p>
+            </div>
+            <div class="service-card">
+                <h3>Connect your platforms</h3>
+                <p>Email, social, course platforms, ads — I make sure they're all working together instead of operating in silos.</p>
+            </div>
+            <div class="service-card">
+                <h3>Optimize as we go</h3>
+                <p>Once it's live, I track what's working, tweak what's not, and keep refining until your conversion's predictable.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding: 3rem; background: var(--pale-purple); max-width: 800px; margin-left: auto; margin-right: auto;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem;">What you end up with</h3>
+            <p style="font-size: 1.2rem; line-height: 1.7;">A business that generates revenue month after month — not because you're working harder, but because the system's finally doing what it's supposed to do.</p>
+        </div>
+    </section>
+
+    <section class="how-section">
+        <h2 class="section-title">How we work together</h2>
+        <div class="steps">
+            <div class="step">
+                <span class="step-number">01</span>
+                <h3>Start with the free checklist</h3>
+                <p>Download The Funnel Audit Checklist and see for yourself where your funnel's leaking revenue. It's a quick self-assessment.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">02</span>
+                <h3>Get the full audit ($297)</h3>
+                <p>If you want me to go deeper, I'll do a full audit of your funnel, messaging, and buyer journey — and give you a recorded walkthrough of exactly what to fix and why.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">03</span>
+                <h3>Build it together (custom pricing)</h3>
+                <p>If we're a good fit, I'll build and optimize your entire conversion system. We scope it based on what you actually need, then I get to work.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <h2 class="section-title">What clients say</h2>
+        <div class="testimonial">
+            <p class="testimonial-text">"Katy is exceptional at diagnosing why leads aren't converting — and then building the messaging and system to fix it. The conversion system she created for my $2k coaching program is one I still use, and it consistently sells out. It's given me predictable income and far more confidence in how we bring clients in. What sets Katy apart is that she doesn't just look at tactics — she thinks deeply about the messaging that moves people from interested to ready to buy, and the structure that supports it. If you're looking for someone who understands conversion strategy as well as implementation, she brings that level of thinking to the table."</p>
+            <p class="testimonial-author">— Louise McDonnell</p>
+        </div>
+    </section>
+
+    <section class="cta-section" id="cta">
+        <h2>Let's fix your funnel</h2>
+        <p>I work with a small number of clients at a time — this isn't scalable, template-based work. It's strategic, custom, and built for your business.</p>
+        <p>If you've got an audience, a proven offer, and revenue that's inconsistent, let's talk.</p>
+        <a href="#" class="btn btn-white">Download the Free Checklist</a>
+    </section>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Revenue Funnels Online. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
