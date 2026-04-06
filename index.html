@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revenue Funnels Online | Funnel & Conversion Strategy</title>
+    <title>Free Funnel Audit Checklist | Revenue Funnels Online</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;900&display=swap" rel="stylesheet">
@@ -18,19 +18,16 @@
             --navy: #1a1a2e;
             --purple: #7C3FFF;
             --light-purple: #a78bfa;
-            --pale-purple: #e9d5ff;
             --white: #ffffff;
             --cream: #fdfbf7;
-            --gray: #e5e5e5;
             --text: #2a2a2a;
         }
 
         body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             color: var(--text);
             background: var(--cream);
             line-height: 1.7;
-            overflow-x: hidden;
         }
 
         nav {
@@ -72,64 +69,23 @@
             font-size: 0.95rem;
             font-weight: 500;
             transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--purple);
-            transition: width 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--purple);
         }
 
-        .nav-links a:hover:after {
-            width: 100%;
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
 
         .hero {
             margin-top: 80px;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+            padding: 5rem 2rem;
             background: linear-gradient(135deg, var(--cream) 0%, #f8f4ed 100%);
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(124, 63, 255, 0.08) 0%, transparent 70%);
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-50px, 50px) rotate(5deg); }
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            max-width: 900px;
+            text-align: center;
         }
 
         .hero-eyebrow {
@@ -138,358 +94,228 @@
             text-transform: uppercase;
             color: var(--purple);
             font-weight: 600;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards 0.2s;
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
             font-family: 'Fraunces', serif;
-            font-size: 5rem;
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.1;
+            line-height: 1.2;
             color: var(--navy);
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards 0.4s;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero h1 .highlight {
             color: var(--purple);
-            font-style: italic;
         }
 
         .hero-subheadline {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             line-height: 1.6;
             color: var(--text);
-            max-width: 750px;
-            margin-bottom: 3rem;
-            font-weight: 300;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards 0.6s;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 0.8s forwards 0.8s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .btn {
-            padding: 1.2rem 2.5rem;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 0;
-            transition: all 0.3s;
-            cursor: pointer;
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        .btn-primary:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--purple);
-            transition: left 0.3s;
-            z-index: -1;
-        }
-
-        .btn-primary:hover:before {
-            left: 0;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--navy);
-            border: 2px solid var(--navy);
-        }
-
-        .btn-secondary:hover {
-            background: var(--navy);
-            color: var(--white);
+            max-width: 700px;
+            margin: 0 auto 2rem;
         }
 
         section {
-            padding: 8rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
-        .section-title {
+        h2 {
             font-family: 'Fraunces', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .problem-section {
-            background: var(--white);
-            position: relative;
-        }
-
-        .problem-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .problem-content h2 {
-            font-family: 'Fraunces', serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.3;
+            font-size: 2.5rem;
             color: var(--navy);
             margin-bottom: 2rem;
+            line-height: 1.3;
         }
 
-        .problem-content p {
-            font-size: 1.2rem;
+        h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin: 2rem 0 1rem;
+        }
+
+        p {
+            font-size: 1.15rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
-            color: var(--text);
         }
 
-        .problem-content .emphasis {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--purple);
-            margin-top: 2rem;
-        }
-
-        .paths-section {
-            background: linear-gradient(to bottom, var(--cream), var(--white));
-        }
-
-        .paths-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .path-card {
-            background: var(--white);
-            padding: 3rem;
-            border: 1px solid rgba(124, 63, 255, 0.15);
-            position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .path-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(124, 63, 255, 0.15);
-        }
-
-        .path-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--purple);
-            transition: width 0.3s;
-        }
-
-        .path-card:hover:before {
-            width: 8px;
-        }
-
-        .path-number {
-            font-family: 'Fraunces', serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--purple);
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-        }
-
-        .path-card h3 {
-            font-family: 'Fraunces', serif;
-            font-size: 2rem;
+        .emphasis {
+            font-size: 1.3rem;
             font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-            line-height: 1.3;
+            color: var(--purple);
+            margin: 2rem 0;
         }
 
-        .path-card p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text);
-            margin-bottom: 2rem;
-        }
-
-        .path-card .btn {
-            display: inline-block;
-        }
-
-        .about-section {
+        .stat-box {
             background: var(--navy);
-            color: var(--white);
+            color: white;
+            padding: 5rem 2rem;
+            margin: 3rem 0;
         }
 
-        .about-section .section-title {
-            color: var(--white);
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-content p {
-            font-size: 1.2rem;
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-
-        .about-content p:first-of-type {
-            font-size: 1.4rem;
-            color: var(--white);
-            font-weight: 500;
-        }
-
-        footer {
-            background: var(--navy);
-            color: var(--gray);
-            padding: 4rem 3rem 2rem;
-            border-top: 1px solid rgba(124, 63, 255, 0.2);
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
+        .stat-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        .footer-brand h3 {
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
             font-family: 'Fraunces', serif;
+            font-size: 4rem;
+            color: var(--purple);
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-text {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .quote-box {
+            background: white;
+            padding: 2.5rem;
+            border-left: 4px solid var(--purple);
+            margin: 2.5rem 0;
+            border-radius: 8px;
+        }
+
+        .quote-box p {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--purple);
+        }
+
+        .benefit-card h3 {
             font-size: 1.5rem;
-            color: var(--white);
+            margin-top: 0;
+        }
+
+        .cta-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 3px solid var(--purple);
+            box-shadow: 0 10px 40px rgba(124, 63, 255, 0.15);
+            margin: 4rem auto;
+            max-width: 600px;
+        }
+
+        .cta-box h3 {
+            font-size: 2rem;
+            text-align: center;
             margin-bottom: 1rem;
         }
 
-        .footer-brand p {
-            color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-section h4 {
-            font-family: 'Fraunces', serif;
-            color: var(--white);
-            margin-bottom: 1.5rem;
+        .cta-box .subhead {
             font-size: 1.1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--purple);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(124, 63, 255, 0.2);
             text-align: center;
-            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
 
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 3.5rem;
-            }
+        .benefits-list {
+            background: #f9fafb;
+            padding: 1.5rem;
+            border-left: 3px solid var(--purple);
+            margin-bottom: 2rem;
+        }
 
-            .paths-grid {
-                grid-template-columns: 1fr;
-            }
+        .benefits-list p {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        .benefits-list ul {
+            margin: 0.75rem 0 0 1.25rem;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .form-field {
+            width: 100%;
+            border: 2px solid #ddd;
+            padding: 16px;
+            font-size: 17px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .cta-button {
+            background: var(--purple);
+            color: white;
+            padding: 18px 32px;
+            font-size: 19px;
+            font-weight: 700;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            box-shadow: 0 4px 14px rgba(124, 63, 255, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-proof {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #666;
+            margin-top: 1.5rem;
+            font-style: italic;
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-                font-size: 0.85rem;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
-
-            .hero-subheadline {
-                font-size: 1.1rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title {
+            h2 {
                 font-size: 2rem;
+            }
+            .stat-number {
+                font-size: 3rem;
+            }
+            .nav-links {
+                display: none;
             }
         }
     </style>
@@ -497,269 +323,338 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Revenue Funnels</a>
+            <a href="index.html" class="logo">Revenue Funnels</a>
             <ul class="nav-links">
-                <li><a href="consultancy.html">Consultancy</a></li>
-                <li><a href="coaching.html">Coaching</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="consultancy.html">Done-For-You</a></li>
+                <li><a href="coaching.html">Done-With-You</a></li>
+                <li><a href="audit.html">Revenue Audit</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-eyebrow">Conversion Strategy</div>
-                <h1>You don't need more leads. <br>You need the <span class="highlight">right system.</span></h1>
-                <p class="hero-subheadline">I help high-ticket service providers turn the leads they already have into consistent $15K+ months. And I teach copywriters and marketers how to do the same thing for their clients.</p>
-                
-                <!-- Checklist Opt-in Box -->
-                <div style="background: white; padding: 2.5rem; border-radius: 8px; max-width: 550px; margin: 3rem 0; border: 2px solid var(--purple); box-shadow: 0 10px 40px rgba(124, 63, 255, 0.15);">
-                    <h3 style="font-family: 'Fraunces', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; line-height: 1.3;">Your funnel's hemorrhaging revenue. Let me show you where.</h3>
-                    <p style="font-size: 1.05rem; color: var(--text); margin-bottom: 1.5rem; line-height: 1.6;">Most high-ticket funnels leak 30-40% of potential revenue in 5 predictable places. Download my free Funnel Audit Checklist and know exactly which ones are costing YOU sales — in under 5 minutes.</p>
-                    
-                    <p style="font-size: 1rem; color: var(--navy); margin-bottom: 1.25rem; font-weight: 600;">Here's what you'll get:</p>
-                    <ul style="list-style: none; padding: 0; margin-bottom: 1.75rem; color: var(--text); line-height: 1.8;">
-                        <li style="padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem;">
-                            <span style="position: absolute; left: 0; color: var(--purple); font-weight: bold;">✓</span>
-                            The 5 conversion leaks killing your high-ticket sales (and how to diagnose which ones you have)
-                        </li>
-                        <li style="padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem;">
-                            <span style="position: absolute; left: 0; color: var(--purple); font-weight: bold;">✓</span>
-                            A scoring system that tells you exactly where to start fixing
-                        </li>
-                        <li style="padding-left: 1.5rem; position: relative; margin-bottom: 0.5rem;">
-                            <span style="position: absolute; left: 0; color: var(--purple); font-weight: bold;">✓</span>
-                            Specific tactics to plug each leak (not theory — actual fixes)
-                        </li>
-                        <li style="padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--purple); font-weight: bold;">✓</span>
-                            Real benchmarks so you know if your conversion rate is broken or just needs tweaking
-                        </li>
-                    </ul>
-                    
-                    <div id="mlb2-39143173" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39143173">
-                        <div class="ml-form-align-center">
-                            <div class="ml-form-embedWrapper embedForm">
-                                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                                    <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/subscribe" data-code="" method="post" target="_blank">
-                                        <div class="ml-form-formContent">
-                                            <div class="ml-form-fieldRow">
-                                                <div class="ml-field-group ml-field-name">
-                                                    <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Name" autocomplete="given-name" style="border: 1px solid #ddd; padding: 14px; font-size: 16px; width: 100%; margin-bottom: 10px; border-radius: 4px;">
-                                                </div>
-                                            </div>
-                                            <div class="ml-form-fieldRow ml-last-item">
-                                                <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                                                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email" style="border: 1px solid #ddd; padding: 14px; font-size: 16px; width: 100%; margin-bottom: 15px; border-radius: 4px;">
-                                                </div>
-                                            </div>
+        <div class="hero-eyebrow">For Coaches & High-Ticket Service Providers</div>
+        <h1>You're Not Losing Clients Because of Your Skills.<br>You're Losing Them Because <span class="highlight">Your System is Broken.</span></h1>
+        <p class="hero-subheadline">54% of service providers say finding clients is their biggest challenge. But the real problem isn't leads — it's the invisible gaps in your funnel hemorrhaging 30-40% of your revenue.</p>
+    </section>
+
+    <section>
+        <div class="content">
+            <h2>You're doing everything "right" — but revenue is still a roller coaster</h2>
+            
+            <p>You show up on LinkedIn. You create content. You get leads. People say they're interested.</p>
+            
+            <p>But then they disappear. Or they say "let me think about it" and never come back. Or they book a call and don't show up.</p>
+            
+            <p>And you're stuck in the feast-famine cycle: when clients show up, marketing stops. When clients leave, there's no pipeline.</p>
+            
+            <p class="emphasis">Sound familiar?</p>
+            
+            <p>Here's the hard truth: <strong>doing MORE won't fix this.</strong></p>
+            
+            <p>More content. More visibility. More networking. More leads flowing into a broken buyer journey just amplifies the problem.</p>
+            
+            <p>Because the issue isn't effort. It's structure.</p>
+            
+            <p>Somewhere between "I'm interested" and "I'm paying," there's a gap — and until you find it, sales will keep feeling unpredictable no matter how hard you work.</p>
+        </div>
+    </section>
+
+    <div class="stat-box">
+        <h2 style="text-align: center; color: white; margin-bottom: 3rem;">The Numbers Don't Lie</h2>
+        <div class="stat-grid">
+            <div class="stat">
+                <div class="stat-number">54%</div>
+                <p class="stat-text">of service providers say finding new clients is their #1 challenge</p>
+            </div>
+            <div class="stat">
+                <div class="stat-number">40%</div>
+                <p class="stat-text">of your time goes to marketing instead of paid client work</p>
+            </div>
+            <div class="stat">
+                <div class="stat-number">44%</div>
+                <p class="stat-text">give up after ONE follow-up (but it takes 8 touchpoints to convert)</p>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="content">
+            <h2>The Real Problem: Your Funnel Has Invisible Leaks</h2>
+            
+            <p>Most high-ticket funnels leak revenue in 5 predictable places. And because these leaks are invisible, you don't know which one is costing you sales.</p>
+            
+            <p>You might think you need more leads. But what if you're actually losing 30-40% of the leads you already have?</p>
+            
+            <div class="quote-box">
+                <p>Here's what's actually happening: People are interested. They click. They read. They even reach out. But somewhere in your funnel, the messaging isn't creating urgency. Or the next step isn't clear. Or your follow-up assumes they remember why they cared. So they drop off — and you never know why.</p>
+            </div>
+            
+            <p>And here's the frustrating part: <strong>you can't fix what you can't see.</strong></p>
+        </div>
+    </section>
+
+    <section style="background: #f9fafb;">
+        <div class="content">
+            <h2>What You Actually Want (And Deserve)</h2>
+            
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 3rem;">You don't want to spend 40% of your time hunting for clients. You want a system that brings them to you.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Predictable Revenue</h3>
+                    <p>No more feast-famine. A full calendar of qualified prospects who are ready to work with you.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Time Freedom</h3>
+                    <p>Marketing that runs in the background while you focus on client work that actually pays.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Clients on Autopilot</h3>
+                    <p>A system that attracts, nurtures, and converts leads without you manually chasing every single one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="content">
+            <h2>The First Step: Know Exactly What's Broken</h2>
+            
+            <p>Before you can build a system that works, you need to know where yours is failing.</p>
+            
+            <p>That's what the <strong>Funnel Audit Checklist</strong> does.</p>
+            
+            <p>It shows you the 5 places high-ticket funnels leak revenue — and gives you a scoring system to diagnose which leaks are costing YOU sales right now.</p>
+            
+            <p>In the next 5 minutes, you'll know:</p>
+            
+            <ul style="margin: 2rem 0; padding-left: 2rem;">
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;"><strong>Which conversion leak is your biggest problem</strong> (unclear positioning? weak CTAs? broken follow-up? confusing next steps? or lack of urgency?)</li>
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;"><strong>Your exact funnel health score</strong> so you know if you need tweaks or a complete rebuild</li>
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;"><strong>The ONE thing to fix first</strong> that will have the biggest impact on your conversion rate</li>
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;"><strong>Real benchmarks</strong> to compare against (so you know if 15% is terrible or totally normal for your offer type)</li>
+            </ul>
+
+            <p class="emphasis">This isn't theory. It's a diagnostic tool.</p>
+            
+            <p>And it's the same framework I use with every client before we touch a single page of copy or rebuild a funnel.</p>
+        </div>
+    </section>
+
+    <section style="background: #f9fafb;">
+        <div class="content">
+            <h2>Why This Checklist is Different</h2>
+            
+            <p>Most "funnel audits" are vague checklists that tell you to "optimize your headline" or "improve your CTA."</p>
+            
+            <p>This one is different.</p>
+            
+            <p>It's built from 5+ years of working with high-ticket coaches, course creators, and service providers selling $2K-$10K offers. I've seen the same 5 leaks kill conversions over and over — and I've built a system to diagnose which one is YOUR problem.</p>
+            
+            <div class="quote-box">
+                <p>You don't need 47 things to fix. You need to know which ONE thing is costing you the most revenue — and fix that first.</p>
+            </div>
+            
+            <p>That's what this checklist does. It helps you prioritize.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="content">
+            <h2>Here's What You Get</h2>
+            
+            <h3>📋 The 5 Funnel Leak Diagnostic</h3>
+            <p>A step-by-step breakdown of the 5 places high-ticket funnels lose revenue — with specific questions to identify which leaks exist in YOUR funnel.</p>
+            
+            <h3>📊 Funnel Health Scoring System</h3>
+            <p>Score your funnel in each of the 5 areas and get your total "funnel health score" — so you know if you need minor tweaks (70-85%), a strategic overhaul (50-69%), or a complete rebuild (below 50%).</p>
+            
+            <h3>✅ Priority Action Matrix</h3>
+            <p>Not all leaks are created equal. This shows you which leak to fix FIRST based on impact vs. effort — so you get results fast without wasting time on low-priority fixes.</p>
+            
+            <h3>📈 Real Conversion Benchmarks</h3>
+            <p>Industry benchmarks for high-ticket funnels so you know what "good" looks like. Is 15% opt-in rate terrible or totally normal? Is 30% call show rate broken or standard? You'll know.</p>
+            
+            <h3>🎯 Next Steps Roadmap</h3>
+            <p>Based on your score, you'll get a clear roadmap: what to fix this week, what to tackle in the next 30 days, and when it's time to bring in help vs. DIY it.</p>
+        </div>
+    </section>
+
+    <!-- CTA BOX -->
+    <section>
+        <div class="cta-box">
+            <h3>Get the Free Funnel Audit Checklist</h3>
+            <p class="subhead">Find the revenue leak in your funnel — in the next 5 minutes</p>
+            
+            <div class="benefits-list">
+                <p>Inside the checklist:</p>
+                <ul>
+                    <li>The 5 conversion leaks killing your sales (+ how to spot them)</li>
+                    <li>A scoring system that tells you EXACTLY where to start</li>
+                    <li>Specific fixes for each leak (not theory — actual tactics)</li>
+                    <li>Real benchmarks so you know if you're broken or just need tweaking</li>
+                </ul>
+            </div>
+            
+            <div id="mlb2-39143173" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39143173">
+                <div class="ml-form-align-center">
+                    <div class="ml-form-embedWrapper embedForm">
+                        <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/subscribe" data-code="" method="post" target="_blank">
+                                <div class="ml-form-formContent">
+                                    <div class="ml-form-fieldRow">
+                                        <div class="ml-field-group ml-field-name">
+                                            <input aria-label="name" type="text" class="form-control form-field" name="fields[name]" placeholder="First name" autocomplete="given-name">
                                         </div>
-                                        <input type="hidden" name="ml-submit" value="1">
-                                        <div class="ml-form-embedSubmit">
-                                            <button type="submit" class="primary" style="background: var(--purple); color: white; padding: 16px 32px; font-size: 18px; font-weight: 700; border: none; border-radius: 4px; width: 100%; cursor: pointer; font-family: 'DM Sans', sans-serif;">Send Me the Checklist</button>
+                                    </div>
+                                    <div class="ml-form-fieldRow ml-last-item">
+                                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                            <input aria-label="email" aria-required="true" type="email" class="form-control form-field" name="fields[email]" placeholder="Email address" autocomplete="email">
                                         </div>
-                                        <input type="hidden" name="anticsrf" value="true">
-                                    </form>
-                                </div>
-                                <div class="ml-form-successBody row-success" style="display: none">
-                                    <div class="ml-form-successContent">
-                                        <h4 style="color: var(--navy);">Check your inbox!</h4>
-                                        <p style="color: var(--text);">Your Funnel Audit Checklist is on its way.</p>
                                     </div>
                                 </div>
+                                <input type="hidden" name="ml-submit" value="1">
+                                <div class="ml-form-embedSubmit">
+                                    <button type="submit" class="primary cta-button">Get the Free Checklist →</button>
+                                </div>
+                                <input type="hidden" name="anticsrf" value="true">
+                            </form>
+                        </div>
+                        <div class="ml-form-successBody row-success" style="display: none">
+                            <div class="ml-form-successContent">
+                                <h4 style="color: var(--navy);">Check your inbox!</h4>
+                                <p style="color: var(--text);">Your Funnel Audit Checklist is on its way.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem; text-align: center; font-style: italic;">Downloaded by 400+ service providers. Takes 5 minutes. Shows you exactly what's broken.</p>
-                </div>
-
-                <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.1);">
-                    <p style="font-size: 1rem; color: var(--text); margin-bottom: 1.5rem;">Or jump straight to:</p>
-                    <div class="hero-cta">
-                        <a href="consultancy.html" class="btn btn-primary">I Need a Funnel Built</a>
-                        <a href="coaching.html" class="btn btn-secondary">I Want to Learn This</a>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <script>
-        function ml_webform_success_39143173() {
-            var $ = ml_jQuery || jQuery;
-            $('.ml-subscribe-form-39143173 .row-success').show();
-            $('.ml-subscribe-form-39143173 .row-form').hide();
-        }
-    </script>
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-    <script>
-        fetch("https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/takel")
-    </script>
-
-    <section class="problem-section">
-        <div class="problem-content">
-            <h2>You're showing up. Creating content. Getting leads.</h2>
-            <p>But somewhere between "I'm interested" and "I'm paying" — they disappear.</p>
-            <p>It's not a visibility problem. It's a structure problem.</p>
-            <p>Your messaging doesn't create urgency. Your platforms aren't talking to each other. Your follow-up assumes people remember why they cared.</p>
-            <p>So revenue shows up when you launch, and disappears the second you stop.</p>
-            <p class="emphasis">That's fixable.</p>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section style="padding: 6rem 3rem; background: var(--navy); color: white;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="font-family: 'Fraunces', serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; color: white;">What happens when you fix the system</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #d1d5db; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto;">Real results from clients who stopped chasing leads and started converting the ones they had:</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-bottom: 4rem;">
-                <div style="background: rgba(255,255,255,0.05); padding: 2.5rem; border-left: 4px solid var(--purple);">
-                    <div style="font-family: 'Fraunces', serif; font-size: 3rem; color: var(--purple); margin-bottom: 0.5rem;">$2K → Sold Out</div>
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #d1d5db;">Consistent sold-out coaching programs with predictable income and a conversion system that still works today.</p>
-                </div>
+            <p class="social-proof">✓ 400+ downloads • ✓ Takes 5 minutes • ✓ Instant access</p>
+        </div>
+    </section>
 
-                <div style="background: rgba(255,255,255,0.05); padding: 2.5rem; border-left: 4px solid var(--purple);">
-                    <div style="font-family: 'Fraunces', serif; font-size: 3rem; color: var(--purple); margin-bottom: 0.5rem;">30-40%</div>
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #d1d5db;">Recovery rate on stalled leads with a proper follow-up sequence. Most businesses lose these leads completely because there's no system to re-engage them.</p>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.05); padding: 2.5rem; border-left: 4px solid var(--purple);">
-                    <div style="font-family: 'Fraunces', serif; font-size: 3rem; color: var(--purple); margin-bottom: 0.5rem;">$15K+/mo</div>
-                    <p style="font-size: 1.1rem; line-height: 1.7; color: #d1d5db;">Consistent monthly revenue once the funnel's fixed. Not launch spikes. Not hustle-dependent income. Predictable sales from a system that works.</p>
-                </div>
+    <section style="background: var(--navy); color: white; padding: 5rem 2rem;">
+        <div class="content">
+            <h2 style="color: white; text-align: center; margin-bottom: 3rem;">"But Katy, I've tried auditing my funnel before..."</h2>
+            
+            <p style="color: #d1d5db; text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">I hear you. Here's why this is different:</p>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-left: 4px solid var(--purple); margin-bottom: 2rem;">
+                <p style="color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">"I don't have time for another 40-page PDF I'll never read"</p>
+                <p style="color: #d1d5db; margin: 0;">This is 3 pages. You can complete it in 5 minutes. It's a diagnostic tool, not a course.</p>
             </div>
-
-            <!-- Client Testimonials -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 4rem;">
-                <!-- Louise McDonnell -->
-                <div style="background: white; padding: 2rem; border-radius: 8px; color: var(--navy);">
-                    <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 1rem;">
-                        <img src="louise-mcdonnell.jpg" alt="Louise McDonnell" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
-                        <div>
-                            <h4 style="font-family: 'Fraunces', serif; font-size: 1.3rem; margin: 0 0 0.25rem 0; color: var(--navy);">Louise McDonnell</h4>
-                            <p style="font-size: 0.9rem; color: #666; margin: 0; font-style: italic;">AI Social Media Sales Strategist</p>
-                        </div>
-                    </div>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #333; font-style: italic;">"Katy is a true professional who consistently delivers high-quality results. She's able to take feedback and direction with ease and is strategically aligned with our goals. I wouldn't hesitate to recommend her to anyone looking for a talented and reliable funnel strategist."</p>
-                </div>
-
-                <!-- Vanessa Guerrero -->
-                <div style="background: white; padding: 2rem; border-radius: 8px; color: var(--navy);">
-                    <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 1rem;">
-                        <img src="vanessa-guerrero.jpg" alt="Vanessa Guerrero" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
-                        <div>
-                            <h4 style="font-family: 'Fraunces', serif; font-size: 1.3rem; margin: 0 0 0.25rem 0; color: var(--navy);">Vanessa Guerrero</h4>
-                            <p style="font-size: 0.9rem; color: #666; margin: 0; font-style: italic;">Websites & Branding Specialist</p>
-                        </div>
-                    </div>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #333; font-style: italic;">"Katy has a rare ability to spot the gaps in your sales process and turn them into opportunities for growth. She has helped me simplify and scale without adding more work to my plate."</p>
-                </div>
-
-                <!-- Kayla Burch -->
-                <div style="background: white; padding: 2rem; border-radius: 8px; color: var(--navy);">
-                    <div style="display: flex; gap: 1.5rem; align-items: start; margin-bottom: 1rem;">
-                        <img src="kayla-burch.jpg" alt="Kayla Burch" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; flex-shrink: 0;">
-                        <div>
-                            <h4 style="font-family: 'Fraunces', serif; font-size: 1.3rem; margin: 0 0 0.25rem 0; color: var(--navy);">Kayla Burch</h4>
-                            <p style="font-size: 0.9rem; color: #666; margin: 0; font-style: italic;">Master Coach & Coaching Certification Founder</p>
-                        </div>
-                    </div>
-                    <p style="font-size: 1rem; line-height: 1.7; color: #333; font-style: italic;">"Katy didn't just create my funnel and emails but she gave me total clarity on my messaging. The process felt simple, and now I can confidently market to the right audience."</p>
-                </div>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-left: 4px solid var(--purple); margin-bottom: 2rem;">
+                <p style="color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">"I don't know what's 'good' vs 'bad' — I need benchmarks"</p>
+                <p style="color: #d1d5db; margin: 0;">Every section includes real benchmarks for high-ticket funnels so you know if your 15% conversion is terrible or totally normal.</p>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-left: 4px solid var(--purple); margin-bottom: 2rem;">
+                <p style="color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">"Generic checklists don't apply to my business"</p>
+                <p style="color: #d1d5db; margin: 0;">This was built specifically for coaches and service providers selling $2K+ offers. It's not generic — it's tailored to YOUR business model.</p>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-left: 4px solid var(--purple);">
+                <p style="color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem;">"I need to know WHAT to fix, not just that something's broken"</p>
+                <p style="color: #d1d5db; margin: 0;">The checklist includes specific fixes for each leak — real tactics you can implement this week, not vague advice.</p>
             </div>
         </div>
     </section>
 
-    <style>
-        @media (max-width: 768px) {
-            section > div > div {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    </style>
-
-    <section class="paths-section" id="paths">
-        <h2 class="section-title">Two Ways to Work Together</h2>
-        <div class="paths-grid">
-            <div class="path-card">
-                <div class="path-number">OPTION 01</div>
-                <h3>I Build It For You</h3>
-                <p>I go into your business, find where your funnel's leaking revenue, and rebuild the whole thing. You get a conversion system that turns leads into sales — without you manually chasing every one.</p>
-                <a href="consultancy.html" class="btn btn-primary">Learn More</a>
-            </div>
-            <div class="path-card">
-                <div class="path-number">OPTION 02</div>
-                <h3>I Teach You How</h3>
-                <p>I teach you The Warm to Sold System — the exact framework I use with clients. You learn how to audit funnels, fix messaging, and build high-converting systems for your own clients.</p>
-                <a href="coaching.html" class="btn btn-secondary">Learn More</a>
-            </div>
+    <section>
+        <div class="content">
+            <h2>What Happens After You Download the Checklist?</h2>
+            
+            <p>You'll get immediate access to the PDF. Run through it in the next 5 minutes and you'll know:</p>
+            
+            <ul style="margin: 2rem 0; padding-left: 2rem;">
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;">Your funnel health score (0-100)</li>
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;">Which of the 5 leaks is your biggest problem</li>
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;">The ONE thing to fix first</li>
+                <li style="margin-bottom: 1rem; font-size: 1.15rem;">Whether you need tweaks, an overhaul, or a complete rebuild</li>
+            </ul>
+            
+            <p>From there, you have three options:</p>
+            
+            <h3>Option 1: Fix It Yourself</h3>
+            <p>Use the checklist and the specific fixes to plug the leaks on your own. Most people with scores above 60% can do this without help.</p>
+            
+            <h3>Option 2: Get the Full Audit ($297)</h3>
+            <p>If you want me to go deeper and show you exactly what's broken in a 30-45 minute Loom audit + 2-page action plan, you can book a Revenue System Audit. <a href="audit.html" style="color: var(--purple); text-decoration: underline;">Learn more here</a>.</p>
+            
+            <h3>Option 3: Let Me Build It For You</h3>
+            <p>If your score is below 50% or you just want it done right the first time, I can rebuild your entire funnel from positioning to follow-up. <a href="consultancy.html" style="color: var(--purple); text-decoration: underline;">Learn more about Done-For-You services</a>.</p>
         </div>
     </section>
 
-    <section class="about-section" id="about">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <h2 class="section-title">About Katy</h2>
-            <div style="display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem;">
-                <div style="text-align: center;">
-                    <img src="katy-profile.jpg" alt="Katy" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem; border: 4px solid var(--purple);">
-                </div>
-                <div class="about-content" style="max-width: none;">
-                    <p>I'm Katy. I live in a village in Cyprus with my two girls (11 and 4), my husband, and way too many cats in the backyard.</p>
-                    <p>Before funnels, I was a teacher. Before that, a soprano. Both taught me the same thing: how to take someone from "I don't get it" to "oh, I'm ready." Turns out that's exactly what conversion strategy is.</p>
-                    <p>I work with high-ticket service providers who have audiences and proven offers but can't figure out why revenue's inconsistent. I go in, find where the funnel's leaking, and rebuild the whole thing.</p>
-                    <p>And I teach copywriters and marketers how to do the same thing — because there aren't enough people who actually know how to build revenue systems, and the ones who do charge accordingly.</p>
-                    <p>I work with a small number of people at a time. It's custom, it's strategic, and it's built for results — not templates.</p>
+    <!-- FINAL CTA -->
+    <section style="background: #f9fafb;">
+        <div class="cta-box">
+            <h3>Ready to Find Your Revenue Leak?</h3>
+            <p class="subhead">Download the free checklist and know exactly what's broken in the next 5 minutes</p>
+            
+            <div id="mlb2-39143174" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39143173">
+                <div class="ml-form-align-center">
+                    <div class="ml-form-embedWrapper embedForm">
+                        <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/subscribe" data-code="" method="post" target="_blank">
+                                <div class="ml-form-formContent">
+                                    <div class="ml-form-fieldRow">
+                                        <div class="ml-field-group ml-field-name">
+                                            <input aria-label="name" type="text" class="form-control form-field" name="fields[name]" placeholder="First name" autocomplete="given-name">
+                                        </div>
+                                    </div>
+                                    <div class="ml-form-fieldRow ml-last-item">
+                                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                            <input aria-label="email" aria-required="true" type="email" class="form-control form-field" name="fields[email]" placeholder="Email address" autocomplete="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="ml-submit" value="1">
+                                <div class="ml-form-embedSubmit">
+                                    <button type="submit" class="primary cta-button">Get the Free Checklist →</button>
+                                </div>
+                                <input type="hidden" name="anticsrf" value="true">
+                            </form>
+                        </div>
+                        <div class="ml-form-successBody row-success" style="display: none">
+                            <div class="ml-form-successContent">
+                                <h4 style="color: var(--navy);">Check your inbox!</h4>
+                                <p style="color: var(--text);">Your Funnel Audit Checklist is on its way.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <p class="social-proof">✓ 400+ downloads • ✓ 5 minutes to complete • ✓ Instant PDF delivery</p>
         </div>
     </section>
 
-    <style>
-        @media (max-width: 768px) {
-            .about-section > div > div {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
-            }
-        }
-    </style>
-
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Revenue Funnels Online</h3>
-                <p>Messaging + Systems + Sales</p>
-                <p>I help high-ticket service providers convert leads into revenue — and teach strategists how to build these systems.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Services</h4>
-                <ul class="footer-links">
-                    <li><a href="consultancy.html">Consultancy</a></li>
-                    <li><a href="coaching.html">Coaching</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <ul class="footer-links">
-                    <li><a href="https://www.linkedin.com/in/katyp-evergreen-funnels/" target="_blank">LinkedIn</a></li>
-                    <li><a href="/cdn-cgi/l/email-protection#b0dbd1c4c9f0c2d5c6d5dec5d5d6c5deded5dcc39edfdedcd9ded5">Email</a></li>
-                </ul>
-            </div>
+    <section>
+        <div class="content" style="text-align: center;">
+            <h2>About Katy</h2>
+            <img src="katy-profile.jpg" alt="Katy" style="width: 200px; height: 200px; border-radius: 50%; margin: 2rem auto; display: block; border: 4px solid var(--purple);">
+            <p>I'm Katy. I live in a village in Cyprus with my two girls, my husband, and way too many cats.</p>
+            <p>I help high-ticket coaches and service providers fix the invisible gaps in their funnels that are costing them 30-40% of their revenue.</p>
+            <p>Before funnels, I was a teacher and a soprano. Both taught me how to take someone from "I don't get it" to "I'm ready" — which is exactly what conversion strategy is.</p>
+            <p>This checklist is the same diagnostic I use with every client before we rebuild their funnel. Now you can use it for free.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Revenue Funnels Online. All rights reserved.</p>
+    </section>
+
+    <footer style="background: var(--navy); color: white; padding: 3rem 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="font-family: 'Fraunces', serif; color: white; margin-bottom: 1rem;">Revenue Funnels Online</h3>
+            <p style="color: #d1d5db; margin-bottom: 2rem;">Messaging + Systems + Sales</p>
+            <div style="margin-bottom: 2rem;">
+                <a href="https://www.linkedin.com/in/katyp-evergreen-funnels/" target="_blank" style="color: var(--purple); text-decoration: none; margin: 0 1rem;">LinkedIn</a>
+                <a href="mailto:katy@revenuefunnels.online" style="color: var(--purple); text-decoration: none; margin: 0 1rem;">Email</a>
+            </div>
+            <p style="color: #666; font-size: 0.9rem;">&copy; 2026 Revenue Funnels Online. All rights reserved.</p>
         </div>
     </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        be
+</body>
+</html>
