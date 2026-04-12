@@ -422,6 +422,18 @@
                 <p class="loading-msg" id="rv-loading-msg">Fetching your page...</p>
             </div>
 
+            <!-- EMAIL GATE -->
+            <div id="rv-gate" style="display:none; padding: 1.5rem 0 0;">
+                <p style="font-family:'Fraunces',serif; font-size:1.3rem; color:white; margin-bottom:0.5rem; line-height:1.3;">Your diagnosis is ready.</p>
+                <p style="font-size:0.97rem; color:#c4b5fd; margin-bottom:1.25rem;">Where should I send it? I'll also send you practical funnel tips — no fluff, unsubscribe any time.</p>
+                <div class="url-row">
+                    <input class="url-input" id="rv-email" type="email" placeholder="Your email address" autocomplete="email" />
+                    <button class="review-btn" id="rv-gate-btn" onclick="submitEmail()">Show my results</button>
+                </div>
+                <div class="reviewer-error" id="rv-gate-error"></div>
+                <p style="font-size:0.78rem; color:rgba(255,255,255,0.25); margin-top:0.6rem;">No spam. Unsubscribe any time.</p>
+            </div>
+
             <div class="reviewer-results" id="rv-results">
                 <p class="results-url" id="rv-results-url"></p>
                 <p class="results-heading">Your funnel diagnosis</p>
@@ -552,6 +564,9 @@
             "Putting together your diagnosis..."
         ];
 
+        let pendingResult = null;
+        let pendingUrl = null;
+
         async function runReview() {
             const url = document.getElementById('rv-url').value.trim();
             const errorEl = document.getElementById('rv-error');
@@ -564,6 +579,7 @@
             }
 
             document.getElementById('rv-form').style.display = 'none';
+            document.getElementById('rv-gate').style.display = 'none';
             document.getElementById('rv-results').style.display = 'none';
             document.getElementById('rv-loading').style.display = 'block';
 
@@ -632,8 +648,12 @@ Write like a real person. Be specific. If you cannot access the URL, use the URL
                     else throw new Error('Parse error');
                 }
 
+                pendingResult = result;
+                pendingUrl = url;
+
                 document.getElementById('rv-loading').style.display = 'none';
-                renderResults(url, result);
+                document.getElementById('rv-gate').style.display = 'block';
+                document.getElementById('rv-email').focus();
 
             } catch(err) {
                 clearInterval(msgInterval);
@@ -643,6 +663,40 @@ Write like a real person. Be specific. If you cannot access the URL, use the URL
                 errorEl.textContent = "Something went wrong — please try again in a moment.";
                 errorEl.style.display = 'block';
             }
+        }
+
+        async function submitEmail() {
+            const email = document.getElementById('rv-email').value.trim();
+            const errorEl = document.getElementById('rv-gate-error');
+            errorEl.style.display = 'none';
+
+            if (!email || !email.includes('@')) {
+                errorEl.textContent = "Please enter a valid email address.";
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            const btn = document.getElementById('rv-gate-btn');
+            btn.disabled = true;
+            btn.textContent = 'Loading...';
+
+            // Subscribe to MailerLite
+            try {
+                const formData = new FormData();
+                formData.append('fields[email]', email);
+                formData.append('ml-submit', '1');
+                formData.append('anticsrf', 'true');
+                await fetch('https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/subscribe', {
+                    method: 'POST',
+                    body: formData,
+                    mode: 'no-cors'
+                });
+            } catch(e) {
+                // Silent fail — don't block showing results if ML has an issue
+            }
+
+            document.getElementById('rv-gate').style.display = 'none';
+            renderResults(pendingUrl, pendingResult);
         }
 
         function renderResults(url, r) {
@@ -673,10 +727,15 @@ Write like a real person. Be specific. If you cannot access the URL, use the URL
         }
 
         function resetReviewer() {
+            pendingResult = null;
+            pendingUrl = null;
             document.getElementById('rv-results').style.display = 'none';
+            document.getElementById('rv-gate').style.display = 'none';
             document.getElementById('rv-form').style.display = 'block';
             document.getElementById('rv-url').value = '';
+            document.getElementById('rv-email').value = '';
             document.getElementById('rv-error').style.display = 'none';
+            document.getElementById('rv-gate-error').style.display = 'none';
         }
 
         document.getElementById('rv-url').addEventListener('keydown', function(e) {
