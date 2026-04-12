@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff9f0;
+    --morning: #fff3b0;
+    --afternoon: #c8f7c5;
+    --evening: #d0e8ff;
+    --morning-header: #ffcc00;
+    --afternoon-header: #3ecf5a;
+    --evening-header: #4da6ff;
+    --cat-voice:    #ff6b6b;
+    --cat-teaching: #ff9f1c;
+    --cat-practice: #a29bfe;
+    --cat-personal: #fd79a8;
+    --cat-admin:    #55efc4;
+    --cat-commute:  #f9ca24;
+    --cat-pickup:   #6ab04c;
+    --cat-dropoff:  #badc58;
+    --cat-english:  #30336b;
+    --cat-speech:   #e056fd;
+    --cat-lunch:    #ff7675;
+    --cat-breakfast:#fdcb6e;
+    --cat-business: #0984e3;
+    --cat-voice-text:    #fff;
+    --cat-teaching-text: #fff;
+    --cat-practice-text: #fff;
+    --cat-personal-text: #fff;
+    --cat-admin-text:    #1a5c48;
+    --cat-commute-text:  #5a3e00;
+    --cat-pickup-text:   #fff;
+    --cat-dropoff-text:  #3a5200;
+    --cat-english-text:  #fff;
+    --cat-speech-text:   #fff;
+    --cat-lunch-text:    #fff;
+    --cat-breakfast-text:#5a3e00;
+    --cat-business-text: #fff;
+    --slot-border: rgba(0,0,0,0.07);
+    --header-text: #2d2d2d;
+    --muted: #aaa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--bg);
+    color: #333;
+    min-height: 100vh;
+    padding: 28px 14px 60px;
+    background-image: radial-gradient(circle at 15% 15%, #ffe4fa 0%, transparent 35%),
+                      radial-gradient(circle at 85% 85%, #d0f0ff 0%, transparent 35%);
+  }
+
+  header { text-align: center; margin-bottom: 22px; }
+  header h1 {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 900;
+    color: var(--header-text);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  header h1 .pop { color: #ff6b6b; }
+  header p { color: #888; font-size: 0.82rem; margin-top: 6px; }
+
+  /* TOOLBAR */
+  .toolbar { display: flex; justify-content: center; margin-bottom: 16px; }
+  .add-task-form {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center; align-items: center;
+    background: #fff;
+    border: 2px solid #ffe4b5;
+    border-radius: 16px;
+    padding: 12px 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+  .add-task-form input[type="text"] {
+    background: #fafafa;
+    border: 2px solid #f0e0ff;
+    border-radius: 10px;
+    color: #333;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.85rem;
+    padding: 8px 12px;
+    outline: none;
+    width: 190px;
+    transition: border-color 0.2s;
+  }
+  .add-task-form input:focus { border-color: #a29bfe; }
+  .add-task-form input::placeholder { color: #ccc; }
+  .category-select {
+    background: #fafafa;
+    border: 2px solid #f0e0ff;
+    border-radius: 10px;
+    color: #333;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.82rem;
+    padding: 8px 10px;
+    outline: none;
+    cursor: pointer;
+  }
+  .btn-add {
+    background: #ff6b6b;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 9px 18px;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 3px 8px rgba(255,107,107,0.35);
+  }
+  .btn-add:hover { background: #ff4f4f; transform: translateY(-1px); }
+  .btn-add:active { transform: translateY(0); }
+
+  /* LEGEND */
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    justify-content: center; margin-bottom: 20px;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.74rem; font-weight: 600; color: #555;
+    background: #fff; border-radius: 20px;
+    padding: 4px 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+
+  /* GRID */
+  .week-grid {
+    display: grid;
+    grid-template-columns: 70px repeat(7, 1fr);
+    gap: 5px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .day-header {
+    background: #fff;
+    border: 2px solid #f0e0ff;
+    border-radius: 12px;
+    padding: 10px 4px;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #7b5ea7;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .day-header .s { display: block; }
+  .day-header .f { display: none; }
+  @media (min-width: 720px) {
+    .day-header .s { display: none; }
+    .day-header .f { display: block; }
+  }
+
+  /* Section header */
+  .section-spacer { /* empty */ }
+  .section-header-cell {
+    border-radius: 10px;
+    padding: 6px 8px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #fff;
+  }
+  .section-header-cell.morning   { background: var(--morning-header); color: #5a4000; }
+  .section-header-cell.afternoon { background: var(--afternoon-header); color: #fff; }
+  .section-header-cell.evening   { background: var(--evening-header); color: #fff; }
+
+  .time-label {
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 8px; font-size: 0.64rem; color: var(--muted);
+    letter-spacing: 0.03em; min-height: 56px;
+  }
+  .section-time-label {
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 8px; font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+  .section-time-label.morning   { color: #c89800; }
+  .section-time-label.afternoon { color: #2a9e46; }
+  .section-time-label.evening   { color: #2a7acc; }
+
+  /* SLOTS */
+  .slot {
+    min-height: 56px;
+    border-radius: 10px;
+    border: 2px dashed var(--slot-border);
+    padding: 4px;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .slot.morning-slot   { background: var(--morning); }
+  .slot.afternoon-slot { background: var(--afternoon); }
+  .slot.evening-slot   { background: var(--evening); }
+  .slot.drag-over {
+    border-color: #a29bfe;
+    border-style: solid;
+    box-shadow: inset 0 0 0 3px rgba(162,155,254,0.3);
+  }
+
+  /* TASK CARDS */
+  .task-card {
+    border-radius: 8px;
+    padding: 5px 7px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    line-height: 1.3;
+    cursor: grab;
+    user-select: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 4px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    animation: cardIn 0.18s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  }
+  @keyframes cardIn {
+    from { opacity: 0; transform: scale(0.88) translateY(4px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .task-card:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,0.18); }
+  .task-card.dragging { opacity: 0.35; cursor: grabbing; }
+
+  .task-card.cat-voice     { background: var(--cat-voice);     color: var(--cat-voice-text); }
+  .task-card.cat-teaching  { background: var(--cat-teaching);  color: var(--cat-teaching-text); }
+  .task-card.cat-practice  { background: var(--cat-practice);  color: var(--cat-practice-text); }
+  .task-card.cat-personal  { background: var(--cat-personal);  color: var(--cat-personal-text); }
+  .task-card.cat-admin     { background: var(--cat-admin);     color: var(--cat-admin-text); }
+  .task-card.cat-commute   { background: var(--cat-commute);   color: var(--cat-commute-text); }
+  .task-card.cat-pickup    { background: var(--cat-pickup);    color: var(--cat-pickup-text); }
+  .task-card.cat-dropoff   { background: var(--cat-dropoff);   color: var(--cat-dropoff-text); }
+  .task-card.cat-english   { background: var(--cat-english);   color: var(--cat-english-text); }
+  .task-card.cat-speech    { background: var(--cat-speech);    color: var(--cat-speech-text); }
+  .task-card.cat-lunch     { background: var(--cat-lunch);     color: var(--cat-lunch-text); }
+  .task-card.cat-breakfast { background: var(--cat-breakfast); color: var(--cat-breakfast-text); }
+  .task-card.cat-business  { background: var(--cat-business);  color: var(--cat-business-text); }
+
+  .task-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .task-delete {
+    background: none; border: none;
+    color: rgba(0,0,0,0.2); cursor: pointer;
+    font-size: 0.85rem; line-height: 1;
+    padding: 0 0 0 2px; flex-shrink: 0;
+    transition: color 0.15s;
+  }
+  .task-delete:hover { color: #cc0000; }
+
+  /* POOL */
+  .pool-section { max-width: 1120px; margin: 28px auto 0; }
+  .pool-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    color: #7b5ea7;
+    margin-bottom: 10px;
+    padding-left: 2px;
+  }
+  .pool-zone {
+    min-height: 64px;
+    border-radius: 14px;
+    border: 2.5px dashed #d0c0f0;
+    background: #fff;
+    padding: 10px;
+    display: flex; flex-wrap: wrap; gap: 7px; align-items: flex-start;
+    transition: border-color 0.2s, background 0.2s;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .pool-zone.drag-over { border-color: #a29bfe; background: #f3eeff; }
+  .pool-empty { color: #ccc; font-size: 0.78rem; font-style: italic; padding: 8px 4px; pointer-events: none; }
+
+  .footer-hint {
+    text-align: center; margin-top: 26px;
+    color: #bbb; font-size: 0.7rem; letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Week <span class="pop">✨</span></h1>
+  <p>Drag tasks into slots · drop back below to unschedule · click × to delete</p>
+</header>
+
+<div class="toolbar">
+  <div class="add-task-form">
+    <input type="text" id="taskInput" placeholder="Add a to-do…" maxlength="60" />
+    <select class="category-select" id="categorySelect">
+      <option value="voice">🎵 Voice lesson</option>
+      <option value="teaching">👩‍🏫 Teaching</option>
+      <option value="practice">🎼 Practice</option>
+      <option value="personal">🌸 Personal</option>
+      <option value="admin">📋 Admin</option>
+      <option value="commute">🚗 Commute time</option>
+      <option value="pickup">🏫 Kids pick up</option>
+      <option value="dropoff">🎒 Kids drop off</option>
+      <option value="english">📖 English lesson</option>
+      <option value="speech">🗣️ Speech therapy</option>
+      <option value="lunch">🥗 Lunch</option>
+      <option value="breakfast">🥐 Breakfast</option>
+      <option value="business">💼 My business</option>
+    </select>
+    <button class="btn-add" onclick="addTask()">+ Add</button>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#ff6b6b"></div>Voice lesson</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ff9f1c"></div>Teaching</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a29bfe"></div>Practice</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fd79a8"></div>Personal</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#55efc4"></div>Admin</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f9ca24"></div>Commute</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#6ab04c"></div>Kids pick up</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#badc58"></div>Kids drop off</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#30336b"></div>English lesson</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e056fd"></div>Speech therapy</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ff7675"></div>Lunch</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#fdcb6e"></div>Breakfast</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0984e3"></div>My business</div>
+</div>
+
+<div class="week-grid" id="weekGrid"></div>
+
+<div class="pool-section">
+  <div class="pool-title">📦 Unscheduled</div>
+  <div class="pool-zone" id="pool"
+    ondragover="onDragOver(event)"
+    ondragleave="onDragLeave(event)"
+    ondrop="onDrop(event,'pool')">
+    <span class="pool-empty" id="poolEmpty">Everything's scheduled — nice one! 🎉</span>
+  </div>
+</div>
+
+<div class="footer-hint">
+  Drag to schedule · Click × to delete ·
+  <span id="saveHint" style="color:#3ecf5a; font-weight:700; transition: opacity 1s; opacity:0;">✓ Saved</span>
+  <button onclick="clearAll()" style="margin-left:12px; background:none; border:1px solid #ddd; border-radius:6px; color:#aaa; cursor:pointer; font-size:0.7rem; padding:3px 10px; font-family:inherit;">🗑 Clear board</button>
+</div>
+
+<script>
+const DAYS  = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+const DFULL = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+const BLOCKS = [
+  { id:'morning',   emoji:'☀️', label:'Morning',   times:['6am','7am','8am','9am','10am','11am'], slotClass:'morning-slot'   },
+  { id:'afternoon', emoji:'🌤', label:'Afternoon',  times:['12pm','1pm','2pm','3pm','4pm','5pm'], slotClass:'afternoon-slot' },
+  { id:'evening',   emoji:'🌙', label:'Evening',    times:['6pm','7pm','8pm','9pm'],              slotClass:'evening-slot'   }
+];
+
+const SEEDED = [
+  { slot:'Mon-7am',  text:'Vocal warm-up',            cat:'voice' },
+  { slot:'Mon-9am',  text:'Practice repertoire',       cat:'practice' },
+  { slot:'Mon-10am', text:'Emails & admin',            cat:'admin' },
+  { slot:'Mon-1pm',  text:'Student lesson',            cat:'teaching' },
+  { slot:'Mon-3pm',  text:'Personal time',             cat:'personal' },
+  { slot:'Mon-7pm',  text:'Vocal practice',            cat:'practice' },
+  { slot:'Tue-8am',  text:'Student lesson',            cat:'teaching' },
+  { slot:'Tue-10am', text:'Practice repertoire',       cat:'practice' },
+  { slot:'Tue-2pm',  text:'Student lesson',            cat:'teaching' },
+  { slot:'Tue-7pm',  text:'Personal time',             cat:'personal' },
+  { slot:'Wed-7am',  text:'Vocal warm-up',             cat:'voice' },
+  { slot:'Wed-9am',  text:'Prep lesson materials',     cat:'admin' },
+  { slot:'Wed-1pm',  text:'Record / create content',   cat:'admin' },
+  { slot:'Wed-3pm',  text:'Student lesson',            cat:'teaching' },
+  { slot:'Wed-6pm',  text:'Student lesson (online)',   cat:'teaching' },
+  { slot:'Thu-8am',  text:'Student lesson',            cat:'teaching' },
+  { slot:'Thu-10am', text:'Practice repertoire',       cat:'practice' },
+  { slot:'Thu-2pm',  text:'Personal time',             cat:'personal' },
+  { slot:'Thu-7pm',  text:'Vocal practice',            cat:'practice' },
+  { slot:'Fri-9am',  text:'Admin & planning',          cat:'admin' },
+  { slot:'Fri-1pm',  text:'Student lesson',            cat:'teaching' },
+  { slot:'Fri-3pm',  text:'Wrap-up / review week',     cat:'admin' },
+  { slot:'Fri-6pm',  text:'Wind down',                 cat:'personal' },
+  { slot:'Sat-9am',  text:'Batch content / writing',   cat:'admin' },
+  { slot:'Sat-2pm',  text:'Family time',               cat:'personal' },
+  { slot:'Sat-7pm',  text:'Family / social',           cat:'personal' },
+  { slot:'Sun-10am', text:'Rest & recharge',           cat:'personal' },
+  { slot:'Sun-7pm',  text:'Prep for the week',         cat:'admin' },
+];
+
+const STORAGE_KEY = 'katy-weekly-planner-v1';
+let draggedId = null, taskCounter = 0;
+
+function el(tag, cls) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  return e;
+}
+
+function buildGrid() {
+  const grid = document.getElementById('weekGrid');
+  grid.innerHTML = '';
+  grid.appendChild(el('div'));
+  DAYS.forEach((d, i) => {
+    const h = el('div','day-header');
+    h.innerHTML = `<span class="s">${d}</span><span class="f">${DFULL[i]}</span>`;
+    grid.appendChild(h);
+  });
+  BLOCKS.forEach(block => {
+    const sLbl = el('div','section-time-label ' + block.id);
+    sLbl.textContent = block.emoji;
+    sLbl.style.justifyContent = 'center';
+    grid.appendChild(sLbl);
+    DAYS.forEach(() => {
+      const sh = el('div','section-header-cell ' + block.id);
+      sh.textContent = `${block.emoji} ${block.label}`;
+      grid.appendChild(sh);
+    });
+    block.times.forEach(time => {
+      const tl = el('div','time-label');
+      tl.textContent = time;
+      grid.appendChild(tl);
+      DAYS.forEach(day => {
+        const slotId = `${day}-${time}`;
+        const slot = el('div', `slot ${block.slotClass}`);
+        slot.dataset.slotId = slotId;
+        slot.ondragover  = e => onDragOver(e);
+        slot.ondragleave = e => onDragLeave(e);
+        slot.ondrop      = e => onDrop(e, slotId);
+        grid.appendChild(slot);
+      });
+    });
+  });
+}
+
+function createTaskEl(id, text, cat) {
+  const card = el('div', `task-card cat-${cat}`);
+  card.draggable = true;
+  card.dataset.taskId = id;
+  card.innerHTML = `<span class="task-text" title="${text}">${text}</span><button class="task-delete" onclick="deleteTask('${id}',event)">×</button>`;
+  card.ondragstart = () => { draggedId = id; setTimeout(() => card.classList.add('dragging'), 10); };
+  card.ondragend   = () => { card.classList.remove('dragging'); draggedId = null; };
+  return card;
+}
+
+function addTask(text, cat, targetSlot, skipSave) {
+  if (!text) {
+    const inp = document.getElementById('taskInput');
+    text = inp.value.trim(); if (!text) return;
+    cat = document.getElementById('categorySelect').value;
+    inp.value = ''; inp.focus();
+  }
+  const id = 'task-' + (++taskCounter);
+  const card = createTaskEl(id, text, cat);
+  if (targetSlot && targetSlot !== 'pool') {
+    const slot = document.querySelector(`[data-slot-id="${targetSlot}"]`);
+    if (slot) { slot.appendChild(card); if (!skipSave) saveState(); return; }
+  }
+  document.getElementById('pool').appendChild(card);
+  updatePoolEmpty();
+  if (!skipSave) saveState();
+}
+
+function deleteTask(id, e) {
+  e.stopPropagation();
+  const c = document.querySelector(`[data-task-id="${id}"]`);
+  if (c) { c.remove(); updatePoolEmpty(); saveState(); }
+}
+
+function onDragOver(e)  { e.preventDefault(); e.currentTarget.classList.add('drag-over'); }
+function onDragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
+function onDrop(e, targetId) {
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  if (!draggedId) return;
+  const card = document.querySelector(`[data-task-id="${draggedId}"]`);
+  if (!card) return;
+  if (targetId === 'pool') document.getElementById('pool').appendChild(card);
+  else {
+    const slot = document.querySelector(`[data-slot-id="${targetId}"]`);
+    if (slot) slot.appendChild(card);
+  }
+  updatePoolEmpty();
+  saveState();
+}
+
+function updatePoolEmpty() {
+  document.getElementById('poolEmpty').style.display =
+    document.getElementById('pool').querySelector('.task-card') ? 'none' : 'block';
+}
+
+// ── SAVE / LOAD ──────────────────────────────────────────────
+function saveState() {
+  const tasks = [];
+  // Collect all placed tasks
+  document.querySelectorAll('.slot').forEach(slot => {
+    slot.querySelectorAll('.task-card').forEach(card => {
+      tasks.push({ id: card.dataset.taskId, text: card.querySelector('.task-text').textContent, cat: card.dataset.cat, slot: slot.dataset.slotId });
+    });
+  });
+  // Collect pool tasks
+  document.getElementById('pool').querySelectorAll('.task-card').forEach(card => {
+    tasks.push({ id: card.dataset.taskId, text: card.querySelector('.task-text').textContent, cat: card.dataset.cat, slot: 'pool' });
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({ tasks, counter: taskCounter }));
+  showSaved();
+}
+
+function loadState() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return false;
+  try {
+    const { tasks, counter } = JSON.parse(raw);
+    taskCounter = counter || 0;
+    tasks.forEach(t => {
+      const card = createTaskEl(t.id, t.text, t.cat);
+      if (t.slot === 'pool') {
+        document.getElementById('pool').appendChild(card);
+      } else {
+        const slot = document.querySelector(`[data-slot-id="${t.slot}"]`);
+        if (slot) slot.appendChild(card); else document.getElementById('pool').appendChild(card);
+      }
+    });
+    updatePoolEmpty();
+    return true;
+  } catch(e) { return false; }
+}
+
+function clearAll() {
+  if (!confirm('Clear the whole board and start fresh?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  location.reload();
+}
+
+function showSaved() {
+  const hint = document.getElementById('saveHint');
+  hint.textContent = '✓ Saved';
+  hint.style.opacity = '1';
+  clearTimeout(hint._t);
+  hint._t = setTimeout(() => { hint.style.opacity = '0'; }, 1800);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  buildGrid();
+  const loaded = loadState();
+  if (!loaded) {
+    // First visit — seed defaults
+    SEEDED.forEach(s => addTask(s.text, s.cat, s.slot, true));
+    saveState();
+  }
+  document.getElementById('taskInput').addEventListener('keydown', e => { if (e.key==='Enter') addTask(); });
+});
+</script>
+</body>
+</html>
