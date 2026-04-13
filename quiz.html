@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
     
+    <!-- MailerLite Universal CSS -->
+    <link rel="stylesheet" href="https://assets.mlcdn.com/fonts.css?version=1774528">
+    
     <style>
         :root {
             --navy: #1a1a2e;
@@ -358,9 +361,47 @@
 
             <div class="email-capture" id="emailCapture">
                 <h3>Get Your Results</h3>
-                <p style="margin-bottom: 2rem;">I'll show you exactly which part of your business is the bottleneck — plus send you a custom roadmap to fix it.</p>
+                <p style="margin-bottom: 2rem; color: #333;">I'll show you exactly which part of your business is the bottleneck — plus send you a custom roadmap to fix it.</p>
                 
-                <div class="ml-embedded" data-form="Sq2ksO"></div>
+                <!-- MailerLite Form -->
+                <div id="mlb2-39143173" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39143173">
+                  <div class="ml-form-align-center">
+                    <div class="ml-form-embedWrapper embedForm">
+                      <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                        <div class="ml-form-embedContent" style="margin-bottom: 0px;"></div>
+                        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/subscribe" data-code="" method="post" target="_blank">
+                          <div class="ml-form-formContent">
+                            <div class="ml-form-fieldRow">
+                              <div class="ml-field-group ml-field-name">
+                                <input aria-label="name" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="Name" autocomplete="given-name">
+                              </div>
+                            </div>
+                            <div class="ml-form-fieldRow ml-last-item">
+                              <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email" autocomplete="email">
+                              </div>
+                            </div>
+                          </div>
+                          <input type="hidden" name="ml-submit" value="1">
+                          <div class="ml-form-embedSubmit">
+                            <button type="submit" class="primary">Show Me My Bottleneck →</button>
+                            <button disabled="disabled" style="display: none;" type="button" class="loading">
+                              <div class="ml-form-embedSubmitLoad"></div>
+                              <span class="sr-only">Loading...</span>
+                            </button>
+                          </div>
+                          <input type="hidden" name="anticsrf" value="true">
+                        </form>
+                      </div>
+                      <div class="ml-form-successBody row-success" style="display: none">
+                        <div class="ml-form-successContent">
+                          <h4>Checking your results...</h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End MailerLite Form -->
             </div>
 
             <div id="diagnosis" style="display: none;">
@@ -683,22 +724,18 @@
 
             // Scroll to results
             resultsDiv.scrollIntoView({ behavior: 'smooth' });
-
-            // Listen for MailerLite form submission
-            // Check every 500ms if form was submitted
-            const checkInterval = setInterval(() => {
-                // MailerLite hides the form and shows success message after submit
-                const mlForm = document.querySelector('.ml-embedded');
-                const mlSuccess = document.querySelector('.ml-success');
-                
-                if (mlSuccess || (mlForm && mlForm.style.display === 'none')) {
-                    // Form was submitted - show diagnosis
-                    document.getElementById('emailCapture').style.display = 'none';
-                    document.getElementById('diagnosis').style.display = 'block';
-                    clearInterval(checkInterval);
-                    
-                    // Scroll to diagnosis
-                    document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth' });
+            
+            // Watch for MailerLite form submission
+            const checkFormSubmission = setInterval(() => {
+                const successBody = document.querySelector('.ml-form-successBody.row-success');
+                if (successBody && successBody.style.display !== 'none') {
+                    // Form was submitted successfully
+                    clearInterval(checkFormSubmission);
+                    setTimeout(() => {
+                        document.getElementById('emailCapture').style.display = 'none';
+                        document.getElementById('diagnosis').style.display = 'block';
+                        document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth' });
+                    }, 1000); // Wait 1 second to show success message
                 }
             }, 500);
         }
@@ -706,5 +743,8 @@
         // Initialize quiz
         renderQuiz();
     </script>
+    
+    <!-- MailerLite Script -->
+    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
 </body>
 </html>
