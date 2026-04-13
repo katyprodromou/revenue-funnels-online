@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The $5K-$15K Bottleneck Calculator | Revenue Funnels</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --navy: #1a1a2e;
+            --purple: #7C3FFF;
+            --light-purple: #a78bfa;
+            --cream: #f3eeff;
+            --white: #ffffff;
+            --gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--white);
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .quiz-header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+        }
+
+        .eyebrow {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--purple);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            background: #e5e5e5;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--purple), var(--light-purple));
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .question-card {
+            background: var(--white);
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .question-card.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-number {
+            font-size: 0.9rem;
+            color: var(--purple);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option {
+            background: var(--cream);
+            border: 2px solid transparent;
+            padding: 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+        }
+
+        .option:hover {
+            border-color: var(--light-purple);
+            background: var(--white);
+        }
+
+        .option.selected {
+            border-color: var(--purple);
+            background: var(--white);
+            font-weight: 600;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary {
+            background: #e5e5e5;
+            color: var(--navy);
+        }
+
+        .btn-secondary:hover {
+            background: #d1d1d1;
+        }
+
+        .btn-primary {
+            background: var(--purple);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #6a2fd8;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a2a3e 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .results-hero h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .bottleneck-name {
+            font-size: 3rem;
+            color: var(--purple);
+            font-family: 'Fraunces', serif;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        .results-description {
+            background: var(--cream);
+            padding: 2rem;
+            border-left: 4px solid var(--purple);
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .results-description h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .results-description p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .email-capture {
+            background: var(--white);
+            border: 2px solid var(--purple);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .email-capture h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--light-purple);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .question-text {
+                font-size: 1.2rem;
+            }
+
+            .bottleneck-name {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Revenue Funnels</a>
+            <ul class="nav-links">
+                <li><a href="consultancy.html">Consultancy</a></li>
+                <li><a href="coaching.html">Coaching</a></li>
+                <li><a href="audit.html">Audit</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="quiz-header">
+            <p class="eyebrow">Free Diagnostic Tool</p>
+            <h1>The $5K-$15K Bottleneck Calculator</h1>
+            <p class="subtitle">Find out which part of your business is keeping you stuck — in 2 minutes.</p>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <div id="quizContainer"></div>
+
+        <div class="results" id="results">
+            <div class="results-hero">
+                <h2>You've Completed the Quiz!</h2>
+                <p style="color: #d1d5db; font-size: 1.1rem; margin-top: 1rem;">Enter your email below to get your personalized bottleneck diagnosis.</p>
+            </div>
+
+            <div class="email-capture" id="emailCapture">
+                <h3>Get Your Results</h3>
+                <p style="margin-bottom: 2rem; color: #333;">I'll show you exactly which part of your business is the bottleneck — plus send you a custom roadmap to fix it.</p>
+                
+                <div style="background: red; padding: 2rem; margin: 2rem 0; color: white; font-size: 2rem; text-align: center;">
+                    TEST - CAN YOU SEE THIS RED BOX?
+                </div>
+                
+                <form id="emailForm" style="max-width: 500px; margin: 0 auto; display: block; background: yellow; padding: 2rem;" onsubmit="showDiagnosis(event)">
+                    <div style="margin-bottom: 1.5rem;">
+                        <input type="text" id="nameInput" placeholder="Your Name" required style="display: block; width: 100%; padding: 1.2rem; font-size: 1.05rem; border: 2px solid #7C3FFF; border-radius: 4px; margin-bottom: 1rem; background: white; color: #333; box-sizing: border-box;">
+                        <input type="email" id="emailInput" placeholder="your@email.com" required style="display: block; width: 100%; padding: 1.2rem; font-size: 1.05rem; border: 2px solid #7C3FFF; border-radius: 4px; background: white; color: #333; box-sizing: border-box;">
+                    </div>
+                    <button type="submit" class="btn-primary" style="display: block; width: 100%; padding: 1.2rem; font-size: 1.1rem; font-weight: 700; background: #7C3FFF; color: white; border: none; border-radius: 4px; cursor: pointer;">Show Me My Bottleneck →</button>
+                </form>
+            </div>
+
+            <div id="diagnosis" style="display: none;">
+                <div class="results-hero">
+                    <h2>Your Biggest Bottleneck Is:</h2>
+                    <div class="bottleneck-name" id="bottleneckName"></div>
+                </div>
+
+                <div class="results-description" id="bottleneckDescription"></div>
+
+                <div class="email-capture">
+                    <h3>Want Help Fixing This?</h3>
+                    <p style="margin-bottom: 1.5rem;">I've sent your custom fix roadmap to your email. If you want personalized help rebuilding this part of your business, let's talk.</p>
+                    <a href="audit.html" class="btn-primary" style="display: inline-block; text-decoration: none;">Book a Revenue System Audit ($297) →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Revenue Funnels Online</strong></p>
+        <p><a href="/cdn-cgi/l/email-protection#1e757f6a675e6c7b687b706b7b786b70707b726d3071707277707b"><span class="__cf_email__" data-cfemail="660d07121f261403100308130300130808030a154809080a0f0803">[email&#160;protected]</span></a></p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://static.mailerlite.com/js/universal.js"></script>
+    <script>
+        var ml_account = ml('accounts', '4098412', 'i1m7g8s5d0', 'load');
+    </script>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                category: 'offer',
+                text: 'How would you describe your offer to someone at a networking event?',
+                options: [
+                    { text: 'I help [type of people] with [vague outcome] through coaching/consulting', score: 0 },
+                    { text: 'I offer custom solutions based on what each client needs', score: 1 },
+                    { text: 'I have a specific transformation/outcome with a clear process to get there', score: 3 }
+                ]
+            },
+            {
+                id: 2,
+                category: 'pricing',
+                text: 'How do you currently charge for your services?',
+                options: [
+                    { text: 'Hourly or per session', score: 0 },
+                    { text: 'Project-based with custom pricing for each client', score: 1 },
+                    { text: 'Fixed package price with recurring or value-based component', score: 3 }
+                ]
+            },
+            {
+                id: 3,
+                category: 'delivery',
+                text: 'If you took a 2-week vacation tomorrow, what would happen to your income?',
+                options: [
+                    { text: 'It would completely stop — I need to be present for every client session', score: 0 },
+                    { text: 'Most would stop, but some recurring revenue would continue', score: 1 },
+                    { text: 'Income would continue — I have systems/group components that run without me', score: 3 }
+                ]
+            },
+            {
+                id: 4,
+                category: 'offer',
+                text: 'When a prospect asks "What makes you different?", you say:',
+                options: [
+                    { text: 'I have more experience / I care more / I get better results', score: 0 },
+                    { text: 'I customize everything to exactly what you need', score: 1 },
+                    { text: 'I have a specific methodology/framework that solves [specific problem]', score: 3 }
+                ]
+            },
+            {
+                id: 5,
+                category: 'sales',
+                text: 'What happens after someone books a discovery call with you?',
+                options: [
+                    { text: 'I wing it and figure out what they need on the call', score: 0 },
+                    { text: 'I ask qualifying questions and send a custom proposal after', score: 1 },
+                    { text: 'They\'re pre-qualified, I present my standard offer, and can close on the call', score: 3 }
+                ]
+            },
+            {
+                id: 6,
+                category: 'delivery',
+                text: 'How much of your delivery is 1-on-1 versus leveraged (group/templates/recorded)?',
+                options: [
+                    { text: 'Everything is custom 1-on-1 — that\'s what they\'re paying for', score: 0 },
+                    { text: 'Mostly 1-on-1 with some templates or resources', score: 1 },
+                    { text: '50%+ is leveraged (group sessions, templates, recordings, systems)', score: 3 }
+                ]
+            },
+            {
+                id: 7,
+                category: 'pricing',
+                text: 'Can you scale revenue without working proportionally more hours?',
+                options: [
+                    { text: 'No — more revenue = more hours worked', score: 0 },
+                    { text: 'Somewhat — I can be slightly more efficient', score: 1 },
+                    { text: 'Yes — my pricing model allows for leverage (recurring, group, value-based)', score: 3 }
+                ]
+            },
+            {
+                id: 8,
+                category: 'pipeline',
+                text: 'Where do your leads come from?',
+                options: [
+                    { text: 'Referrals and word-of-mouth when they happen', score: 0 },
+                    { text: 'Some referrals + inconsistent content/outreach', score: 1 },
+                    { text: 'Predictable lead flow from content, ads, or systematic outreach', score: 3 }
+                ]
+            },
+            {
+                id: 9,
+                category: 'sales',
+                text: 'How many unqualified discovery calls do you take per month?',
+                options: [
+                    { text: 'Most of them — I take calls with anyone interested', score: 0 },
+                    { text: 'A few — I try to qualify but still get tire-kickers', score: 1 },
+                    { text: 'Almost none — people are pre-qualified before they get on my calendar', score: 3 }
+                ]
+            },
+            {
+                id: 10,
+                category: 'pipeline',
+                text: 'How predictable is your monthly revenue?',
+                options: [
+                    { text: 'Totally unpredictable — feast or famine', score: 0 },
+                    { text: 'Somewhat predictable but lots of variation month to month', score: 1 },
+                    { text: 'Fairly predictable — I know roughly what\'s coming in', score: 3 }
+                ]
+            }
+        ];
+
+        const bottlenecks = {
+            offer: {
+                name: 'OFFER ARCHITECTURE',
+                description: `
+                    <h3>What's Broken:</h3>
+                    <p>Your offer isn't positioned to scale. You're either too generic ("I'm a coach"), too custom ("I do whatever you need"), or too vague ("I help people transform"). This makes it impossible to scale because every client feels like a custom project.</p>
+                    
+                    <h3>Why You're Stuck:</h3>
+                    <p>When your offer isn't clearly differentiated and outcome-specific, you can't charge premium prices, you attract the wrong clients, and you can't systematize delivery. You're stuck in "better coaching" territory instead of "unique transformation" territory.</p>
+                    
+                    <h3>What to Fix First:</h3>
+                    <p>Rebuild your offer around a specific outcome and process. Instead of "I help entrepreneurs grow," it's "I help service providers break through revenue ceilings by rebuilding their business architecture." Specific outcome + specific process = scalable offer.</p>
+                `
+            },
+            pricing: {
+                name: 'PRICING MODEL',
+                description: `
+                    <h3>What's Broken:</h3>
+                    <p>You're still charging hourly, per session, or with project-based pricing. This creates a direct ceiling: your income = your hours worked. There's no leverage built into your model.</p>
+                    
+                    <h3>Why You're Stuck:</h3>
+                    <p>Time-based pricing means you hit a ceiling the moment you max out on hours. You can't scale to $30K/month by working 80-hour weeks. You need pricing that decouples your time from your revenue.</p>
+                    
+                    <h3>What to Fix First:</h3>
+                    <p>Shift to value-based or package pricing with recurring components. Instead of $200/hour, it's a $5K package with 3-month retainer. This lets you scale revenue without proportionally scaling hours.</p>
+                `
+            },
+            delivery: {
+                name: 'DELIVERY SYSTEM',
+                description: `
+                    <h3>What's Broken:</h3>
+                    <p>You're the bottleneck. Everything you deliver is custom, 1-on-1, and requires you to be hands-on. If you stopped working, income stops immediately. You've built a high-paying job, not a scalable business.</p>
+                    
+                    <h3>Why You're Stuck:</h3>
+                    <p>When delivery requires all your time, you can't add clients without adding equal hours. You're trading time for money at scale. This is why you're working 60-hour weeks but still stuck at $15K/month.</p>
+                    
+                    <h3>What to Fix First:</h3>
+                    <p>Build leverage into delivery. Add group components, recorded trainings, templates, or frameworks that do some of the work for you. The goal: clients get results, but you're not doing 100% custom work for every single one.</p>
+                `
+            },
+            sales: {
+                name: 'SALES PROCESS',
+                description: `
+                    <h3>What's Broken:</h3>
+                    <p>Your sales process requires too much custom work per prospect. You're taking unqualified calls, creating custom proposals, and manually following up with everyone. This doesn't scale — you can't 10x leads if each one needs 5 hours of work.</p>
+                    
+                    <h3>Why You're Stuck:</h3>
+                    <p>When sales is manual and custom, you hit a ceiling on how many people you can talk to. You're spending more time on sales than delivery, and most of it is wasted on tire-kickers.</p>
+                    
+                    <h3>What to Fix First:</h3>
+                    <p>Systematize your sales process. Pre-qualify leads before calls. Have a standard offer and pricing (not custom proposals). Automate follow-up sequences. The goal: only talk to people who are ready, qualified, and fit your offer.</p>
+                `
+            },
+            pipeline: {
+                name: 'PIPELINE & MARKETING',
+                description: `
+                    <h3>What's Broken:</h3>
+                    <p>Your lead flow is unpredictable. You're relying on referrals, occasional content, or sporadic outreach. Some months are great, others are a desert. You're constantly in "hunting mode" instead of having leads come to you systematically.</p>
+                    
+                    <h3>Why You're Stuck:</h3>
+                    <p>Inconsistent pipeline means inconsistent revenue. You can't scale when you don't know where next month's clients are coming from. You're stuck reacting to whoever shows up instead of proactively building a system.</p>
+                    
+                    <h3>What to Fix First:</h3>
+                    <p>Build a predictable lead generation system. Content + email nurture, paid ads, systematic outreach — whatever fits your model. The goal: consistent qualified leads every month, not feast-famine chaos.</p>
+                `
+            }
+        };
+
+        let currentQuestion = 0;
+        let scores = {
+            offer: 0,
+            pricing: 0,
+            delivery: 0,
+            sales: 0,
+            pipeline: 0
+        };
+        let answers = [];
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+
+            questions.forEach((q, index) => {
+                const card = document.createElement('div');
+                card.className = `question-card ${index === currentQuestion ? 'active' : ''}`;
+                card.innerHTML = `
+                    <div class="question-number">Question ${index + 1} of ${questions.length}</div>
+                    <div class="question-text">${q.text}</div>
+                    <div class="options">
+                        ${q.options.map((opt, optIndex) => `
+                            <div class="option" data-question="${index}" data-score="${opt.score}" data-category="${q.category}">
+                                ${opt.text}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" onclick="previousQuestion()" ${index === 0 ? 'style="visibility:hidden"' : ''}>
+                            ← Previous
+                        </button>
+                        <button class="btn btn-primary" onclick="nextQuestion()" disabled id="nextBtn${index}">
+                            ${index === questions.length - 1 ? 'See Results →' : 'Next →'}
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            // Add click handlers to options
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.addEventListener('click', function() {
+                    const questionIndex = parseInt(this.dataset.question);
+                    const score = parseInt(this.dataset.score);
+                    const category = this.dataset.category;
+
+                    // Remove selected from siblings
+                    this.parentElement.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                    // Add selected to this
+                    this.classList.add('selected');
+
+                    // Store answer
+                    answers[questionIndex] = { category, score };
+
+                    // Enable next button
+                    document.getElementById(`nextBtn${questionIndex}`).disabled = false;
+                });
+            });
+
+            updateProgress();
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                updateQuiz();
+            } else {
+                calculateResults();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                updateQuiz();
+            }
+        }
+
+        function updateQuiz() {
+            document.querySelectorAll('.question-card').forEach((card, index) => {
+                card.classList.toggle('active', index === currentQuestion);
+            });
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function calculateResults() {
+            // Calculate scores per category
+            answers.forEach(answer => {
+                if (answer) {
+                    scores[answer.category] += answer.score;
+                }
+            });
+
+            // Find lowest scoring category (the bottleneck)
+            let bottleneck = 'offer';
+            let lowestScore = scores.offer;
+
+            Object.keys(scores).forEach(category => {
+                if (scores[category] < lowestScore) {
+                    lowestScore = scores[category];
+                    bottleneck = category;
+                }
+            });
+
+            // Show results
+            document.getElementById('quizContainer').style.display = 'none';
+            document.querySelector('.progress-bar').style.display = 'none';
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.classList.add('active');
+
+            document.getElementById('bottleneckName').textContent = bottlenecks[bottleneck].name;
+            document.getElementById('bottleneckDescription').innerHTML = bottlenecks[bottleneck].description;
+
+            // Scroll to results
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showDiagnosis(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('nameInput').value;
+            const email = document.getElementById('emailInput').value;
+            
+            // Submit to MailerLite
+            fetch('https://assets.mailerlite.com/jsonp/4098412/forms/139385820925510177/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    fields: {
+                        name: name,
+                        email: email
+                    }
+                })
+            }).catch(err => console.log('MailerLite submission:', err));
+            
+            // Show diagnosis immediately
+            document.getElementById('emailCapture').style.display = 'none';
+            document.getElementById('diagnosis').style.display = 'block';
+            document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize quiz
+        renderQuiz();
+    </script>
+</body>
+</html>
