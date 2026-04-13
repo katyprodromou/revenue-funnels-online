@@ -724,24 +724,27 @@
 
             // Scroll to results
             resultsDiv.scrollIntoView({ behavior: 'smooth' });
-            
-            // Watch for MailerLite form submission
-            const checkFormSubmission = setInterval(() => {
-                const successBody = document.querySelector('.ml-form-successBody.row-success');
-                if (successBody && successBody.style.display !== 'none') {
-                    // Form was submitted successfully
-                    clearInterval(checkFormSubmission);
-                    setTimeout(() => {
-                        document.getElementById('emailCapture').style.display = 'none';
-                        document.getElementById('diagnosis').style.display = 'block';
-                        document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth' });
-                    }, 1000); // Wait 1 second to show success message
-                }
-            }, 500);
         }
 
         // Initialize quiz
         renderQuiz();
+    </script>
+    
+    <!-- MailerLite Success Callback -->
+    <script>
+        function ml_webform_success_39143173() {
+            // Hide form, show success message briefly, then show diagnosis
+            var $ = ml_jQuery || jQuery;
+            $('.ml-subscribe-form-39143173 .row-success').show();
+            $('.ml-subscribe-form-39143173 .row-form').hide();
+            
+            // After 2 seconds, show the diagnosis
+            setTimeout(function() {
+                document.getElementById('emailCapture').style.display = 'none';
+                document.getElementById('diagnosis').style.display = 'block';
+                document.getElementById('diagnosis').scrollIntoView({ behavior: 'smooth' });
+            }, 2000);
+        }
     </script>
     
     <!-- MailerLite Script -->
