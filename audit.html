@@ -306,6 +306,33 @@
       font-size: 0.88rem;
     }
 
+    /* ── TRIED ITEMS ── */
+    .tried-items { display: flex; flex-direction: column; gap: 16px; margin-top: 28px; }
+    .tried-item {
+      background: rgba(124,63,255,0.07);
+      border: 1px solid rgba(124,63,255,0.25);
+      border-left: 3px solid var(--purple);
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+    .tried-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 6px;
+    }
+    .tried-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .tried-item p { color: #b8b2cc; font-size: 0.95rem; line-height: 1.7; }
+
     /* ── TRIED BEFORE ── */
     .tried-before {
       background: var(--card-bg);
@@ -628,7 +655,7 @@
       <img src="katy-audit.jpg" alt="Katy Prodromou" />
       <div class="bio-text">
         <h2>But, hey… who am I?</h2>
-        <p>I'm Katy, and I help coaches and service providers who are stuck at $5K–$15K/month break through the invisible ceiling.</p>
+        <p>I'm Katy, and I help service providers who are stuck at $5K–$15K/month break through the invisible ceiling.</p>
         <p>Over the past 5 years I've worked with service providers stuck at the same revenue level month after month — working their asses off but hitting a wall they can't see.</p>
         <p>The problem is never effort or expertise. It's that your business architecture was built for a different revenue level. I diagnose which part is the bottleneck, then show you exactly how to rebuild it. If that's what you need right now, your next step is below.</p>
       </div>
@@ -674,13 +701,33 @@
     <div class="tried-before">
       <h2>What you've already tried — and why it didn't work</h2>
       <p class="intro-p">You're not here because you haven't tried. You've tried plenty. The problem isn't your work ethic — it's that none of the advice you've been given was designed for where you actually are.</p>
-      <ul class="x-list">
-        <li><strong>Courses that teach tactics, not structure.</strong> You learned how to write a caption, build a landing page, record a reel. But no one showed you how the pieces connect — and a disconnected funnel doesn't convert.</li>
-        <li><strong>Coaches who optimised one piece.</strong> Maybe your messaging got tighter, or your offer got clearer. But if the bottleneck is somewhere else in the system — pricing, delivery, pipeline — fixing just one piece leaves the ceiling intact.</li>
-        <li><strong>Content strategies that grew your audience but not your revenue.</strong> More followers, more engagement, more reach. Still the same monthly income. Visibility and conversion are different problems.</li>
-        <li><strong>Freebies and lead magnets that attracted the wrong people.</strong> Or the right people who ghosted, because the gap between your freebie and your paid offer was too big to bridge without a proper nurture sequence.</li>
-        <li><strong>Templates built for someone else's business.</strong> A funnel that works for a $97 course won't work for a $3K coaching package. You've been trying to fit your high-ticket service into low-ticket infrastructure.</li>
-      </ul>
+      <div class="tried-items">
+        <div class="tried-item">
+          <div class="tried-label">Tried it</div>
+          <div class="tried-title">Courses that teach tactics, not structure.</div>
+          <p>You learned how to write a caption, build a landing page, record a reel. But no one showed you how the pieces connect — and a disconnected funnel doesn't convert.</p>
+        </div>
+        <div class="tried-item">
+          <div class="tried-label">Tried it</div>
+          <div class="tried-title">Getting help that optimised one piece.</div>
+          <p>Maybe your messaging got tighter, or your offer got clearer. But if the bottleneck is somewhere else in the system — pricing, delivery, pipeline — fixing just one piece leaves the ceiling intact.</p>
+        </div>
+        <div class="tried-item">
+          <div class="tried-label">Tried it</div>
+          <div class="tried-title">Content strategies that grew your audience but not your revenue.</div>
+          <p>More followers, more engagement, more reach. Still the same monthly income. Visibility and conversion are different problems.</p>
+        </div>
+        <div class="tried-item">
+          <div class="tried-label">Tried it</div>
+          <div class="tried-title">Freebies and lead magnets that attracted the wrong people.</div>
+          <p>Or the right people who ghosted, because the gap between your freebie and your paid offer was too big to bridge without a proper nurture sequence.</p>
+        </div>
+        <div class="tried-item">
+          <div class="tried-label">Tried it</div>
+          <div class="tried-title">Templates built for someone else's business.</div>
+          <p>A funnel that works for a $97 course won't work for a $3K coaching package. You've been trying to fit your high-ticket service into low-ticket infrastructure.</p>
+        </div>
+      </div>
       <p style="margin-top:28px; color: #d4d0e8; font-size:1rem;">None of that was a waste. But none of it diagnosed the real problem. That's what this audit is for.</p>
     </div>
   </section>
