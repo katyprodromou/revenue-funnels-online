@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Resources & Marketing Insights | Revenue Funnels Online</title>
+  <meta name="description" content="Learn how marketing funnels create consistent income for service businesses. Get the latest trends, strategies and offers from Katy Prodromou." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy: #1A1A2E;
+      --purple: #7C3FFF;
+      --purple-light: #a78bfa;
+      --lilac: #c4b5fd;
+      --white: #ffffff;
+      --muted: #9b96b0;
+      --card-bg: #22223a;
+      --border: rgba(124,63,255,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26,26,46,0.95);
+      backdrop-filter: blur(10px);
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 40px 80px;
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      border: 1px solid var(--border);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: italic; color: var(--purple-light); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* ── WHAT YOU GET ── */
+    .what-you-get {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 72px 40px;
+    }
+    .what-you-get h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+      line-height: 1.2;
+    }
+    .what-you-get h2 em { font-style: italic; color: var(--purple-light); }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .topic-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px;
+    }
+    .topic-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .topic-card h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .topic-card p {
+      color: #b8b2cc;
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+    .form-wrapper {
+      background: linear-gradient(135deg, #2a1a5e 0%, #1e1540 100%);
+      border: 1px solid var(--purple);
+      border-radius: 14px;
+      padding: 60px 48px;
+    }
+    .form-wrapper h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      line-height: 1.15;
+      text-align: center;
+    }
+    .form-wrapper h2 em { font-style: italic; color: var(--lilac); }
+    .form-wrapper .form-sub {
+      color: #c4bed8;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* ── MAILERLITE FORM OVERRIDES ── */
+    #mlb2-39143173.ml-form-embedContainer {
+      background: transparent !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper {
+      background-color: transparent !important;
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper.embedForm {
+      max-width: 100% !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody {
+      padding: 0 !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input {
+      background-color: rgba(255,255,255,0.08) !important;
+      color: #ffffff !important;
+      border-color: rgba(124,63,255,0.4) !important;
+      border-radius: 6px !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 1rem !important;
+      padding: 14px 16px !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::placeholder {
+      color: rgba(255,255,255,0.4) !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-webkit-input-placeholder { color: rgba(255,255,255,0.4) !important; }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-moz-placeholder { color: rgba(255,255,255,0.4) !important; }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button {
+      background-color: var(--purple) !important;
+      border-radius: 6px !important;
+      font-family: 'DM Sans', sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: 600 !important;
+      padding: 14px !important;
+      letter-spacing: 0.01em !important;
+      transition: background 0.2s !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {
+      background-color: #6930e8 !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions {
+      margin-top: 4px;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsContent h4,
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsContent p,
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedMailerLite-GDPR p {
+      color: rgba(196,181,253,0.7) !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
+      color: var(--lilac) !important;
+      font-family: 'Fraunces', serif !important;
+      font-size: 1.4rem !important;
+    }
+    #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
+      color: #c4bed8 !important;
+      font-family: 'DM Sans', sans-serif !important;
+    }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .proof-strip p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+    .proof-names {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .proof-name {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .proof-name span:first-child {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+    .proof-name span:last-child {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── NEWSLETTER SECTION ── */
+    .newsletter-section {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 72px 40px;
+    }
+    .newsletter-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .newsletter-section h2 em { font-style: italic; color: var(--purple-light); }
+    .newsletter-intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+    }
+    .newsletter-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .newsletter-card {
+      display: block;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--purple);
+      border-radius: 8px;
+      padding: 24px 28px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .newsletter-card:hover {
+      border-color: var(--purple-light);
+      background: rgba(124,63,255,0.08);
+    }
+    .newsletter-card-meta {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-light);
+      margin-bottom: 8px;
+    }
+    .newsletter-card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .newsletter-card-cta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--purple-light);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--purple-light); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 16px; }
+      .hero { padding: 72px 20px 60px; }
+      .what-you-get { padding: 60px 20px; }
+      .topics-grid { grid-template-columns: 1fr; }
+      .form-section { padding: 0 20px 60px; }
+      .form-wrapper { padding: 36px 24px; }
+      .newsletter-section { padding: 60px 20px; }
+      .proof-names { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/index.html" class="nav-logo">Revenue Funnels Online</a>
+    <ul class="nav-links">
+      <li><a href="/consultancy.html">Consultancy</a></li>
+      <li><a href="/audit.html">Audit</a></li>
+      <li><a href="/free-resources.html" class="active">Free</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Free — No catch</div>
+    <h1>The funnel knowledge your business <em>actually needs.</em></h1>
+    <p class="hero-sub">Practical insights on marketing funnels, the latest trends for service businesses, and how to build consistent income — straight to your inbox.</p>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- WHAT YOU GET -->
+  <div class="what-you-get">
+    <h2>What you'll learn <em>inside:</em></h2>
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <span class="topic-icon">⚙️</span>
+        <h3>How funnels actually create consistent income</h3>
+        <p>Plain-English breakdowns of how a well-built funnel works — and why most service businesses don't have one that converts.</p>
+      </div>
+
+      <div class="topic-card">
+        <span class="topic-icon">📈</span>
+        <h3>Marketing trends for service businesses</h3>
+        <p>What's working in 2025 and what's quietly dying. No fluff, no recycled tips — just what's actually moving the needle for high-ticket service providers.</p>
+      </div>
+
+      <div class="topic-card">
+        <span class="topic-icon">🔎</span>
+        <h3>Diagnosing what's broken in your buyer journey</h3>
+        <p>How to spot the bottleneck that's keeping your income flat — whether it's your offer, your messaging, your nurture sequence, or your tech.</p>
+      </div>
+
+      <div class="topic-card">
+        <span class="topic-icon">✉️</span>
+        <h3>Latest offers and resources</h3>
+        <p>Subscribers hear first about new tools, audits, and availability — before anything goes public. No spam, ever. Unsubscribe any time.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- FORM -->
+  <div class="form-section">
+    <div class="form-wrapper">
+      <h2>Join the list. <em>Stay sharp.</em></h2>
+      <p class="form-sub">Just the stuff that's actually worth your time.</p>
+
+      <!-- MailerLite Embed -->
+      <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1776858");</style>
+      <style type="text/css">
+        .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+        .g-recaptcha { transform: scale(1); -webkit-transform: scale(1); transform-origin: 0 0; -webkit-transform-origin: 0 0; height: ; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+        .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #fff; border-color: #ffffff #ffffff #ffffff transparent; animation: ml-form-embedSubmitLoad 1.2s linear infinite; }
+        @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        #mlb2-39143173.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0 auto; position: static; width: 100% !important; }
+        #mlb2-39143173.ml-form-embedContainer h4, #mlb2-39143173.ml-form-embedContainer p, #mlb2-39143173.ml-form-embedContainer span, #mlb2-39143173.ml-form-embedContainer button { text-transform: none !important; letter-spacing: normal !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper { background-color: transparent; border-width: 0px; border-color: transparent; border-radius: 4px; border-style: solid; box-sizing: border-box; display: inline-block !important; margin: 0; padding: 0; position: relative; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper.embedPopup, #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper.embedDefault { width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper.embedForm { max-width: 100%; width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody, #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent, #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent { text-align: left; margin: 0 0 20px 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody form { margin: 0; width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent, #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-checkboxRow { margin: 0 0 20px 0; width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow.ml-last-item { margin: 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input { background-color: rgba(255,255,255,0.08) !important; color: #ffffff !important; border-color: rgba(124,63,255,0.4) !important; border-radius: 6px !important; border-style: solid !important; border-width: 1px !important; font-family: 'DM Sans', sans-serif; font-size: 1rem !important; height: auto; line-height: 21px !important; margin-bottom: 0; margin-top: 0; margin-left: 0; margin-right: 0; padding: 14px 16px !important; width: 100% !important; box-sizing: border-box !important; max-width: 100% !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-webkit-input-placeholder { color: rgba(255,255,255,0.4) !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::-moz-placeholder { color: rgba(255,255,255,0.4) !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input:-ms-input-placeholder { color: rgba(255,255,255,0.4) !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit { margin: 0 0 20px 0; float: left; width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button { background-color: #7C3FFF !important; border: none !important; border-radius: 6px !important; box-shadow: none !important; color: #ffffff !important; cursor: pointer; font-family: 'DM Sans', sans-serif !important; font-size: 1rem !important; font-weight: 600 !important; line-height: 21px !important; height: auto; padding: 14px !important; width: 100% !important; box-sizing: border-box !important; transition: background 0.2s !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover { background-color: #6930e8 !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading { display: none; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions { text-align: left; float: left; width: 100%; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsContent { margin: 0 0 15px 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsContent h4 { color: rgba(196,181,253,0.8) !important; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700; line-height: 18px; margin: 0 0 6px 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedPermissionsContent p { color: rgba(196,181,253,0.6) !important; font-family: 'DM Sans', sans-serif; font-size: 11px; line-height: 17px; margin: 0 0 10px 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedPermissions .ml-form-embedMailerLite-GDPR p { color: rgba(196,181,253,0.5) !important; font-family: 'DM Sans', sans-serif; font-size: 10px; line-height: 14px; margin: 0; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 { color: #c4b5fd !important; font-family: 'Fraunces', serif !important; font-size: 1.3rem !important; font-weight: 700 !important; }
+        #mlb2-39143173.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p { color: #c4bed8 !important; font-family: 'DM Sans', sans-serif !important; }
+        .ml-error input { border-color: red !important; }
+        .ml-error .label-description, .ml-error label:first-child { color: #ff6b6b !important; }
+      </style>
+
+      <div id="mlb2-39143173" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39143173">
+        <div class="ml-form-align-center">
+          <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+              <div class="ml-form-embedContent" style="margin-bottom: 0px;"></div>
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow">
+                    <div class="ml-field-group ml-field-name">
+                      <input aria-label="name" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="First name" autocomplete="given-name">
+                    </div>
+                  </div>
+                  <div class="ml-form-fieldRow ml-last-item">
+                    <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                      <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Email address" autocomplete="email">
+                    </div>
+                  </div>
+                </div>
+                <div class="ml-form-embedPermissions">
+                  <div class="ml-form-embedPermissionsContent default">
+                    <h4>Marketing Permissions</h4>
+                    <p>The information you provide on this form will only be used to provide you with updates and personalised marketing. Your privacy is important to us. You can unsubscribe any time.</p>
+                  </div>
+                  <div class="ml-form-embedMailerLite-GDPR">
+                    <p>By clicking below to submit this form, you acknowledge that the information you provide will be processed in accordance with our Privacy Policy.</p>
+                  </div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit">
+                  <button type="submit" class="primary">Join the list →</button>
+                  <button disabled="disabled" style="display: none;" type="button" class="loading">
+                    <div class="ml-form-embedSubmitLoad"></div>
+                    <span class="sr-only">Loading...</span>
+                  </button>
+                </div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display: none">
+              <div class="ml-form-successContent">
+                <h4>You're in — check your inbox!</h4>
+                <p>Thank you for subscribing. Your first email is on its way.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function ml_webform_success_39143173() {
+          var $ = ml_jQuery || jQuery;
+          $('.ml-subscribe-form-39143173 .row-success').show();
+          $('.ml-subscribe-form-39143173 .row-form').hide();
+        }
+      </script>
+      <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
+      <script>fetch("https://assets.mailerlite.com/jsonp/2230001/forms/183270372731258074/takel")</script>
+
+    </div>
+  </div>
+
+
+
+  <hr class="divider" />
+
+  <!-- NEWSLETTER SECTION -->
+  <div class="newsletter-section">
+    <h2>Latest from <em>The Unstoppable Demand</em></h2>
+    <p class="newsletter-intro">My LinkedIn newsletter on funnels, marketing strategy, and building consistent income as a service provider.</p>
+    <div class="newsletter-grid">
+
+      <a class="newsletter-card" href="https://www.linkedin.com/pulse/money-youre-losing-without-funnel-why-hurts-so-much-katy-prodromou-nkvqf/?trackingId=2G5l5IvdRWKP6Tpv1jpspA%3D%3D" target="_blank" rel="noopener">
+        <div class="newsletter-card-meta">Latest issue</div>
+        <div class="newsletter-card-title">The Money You're Losing Without a Funnel — and Why It Hurts So Much</div>
+        <div class="newsletter-card-cta">Read on LinkedIn →</div>
+      </a>
+
+      <a class="newsletter-card" href="https://www.linkedin.com/pulse/linear-funnel-dead-thats-good-katy-prodromou-izvuf/?trackingId=x7UYHtUrSGO5aXn9duRieA%3D%3D" target="_blank" rel="noopener">
+        <div class="newsletter-card-meta">2 weeks ago</div>
+        <div class="newsletter-card-title">The Linear Funnel Is Dead — And That's Good</div>
+        <div class="newsletter-card-cta">Read on LinkedIn →</div>
+      </a>
+
+      <a class="newsletter-card" href="https://www.linkedin.com/pulse/case-study-16k-from-single-webinar-launch-low-number-katy-prodromou-kvzuf/?trackingId=dhk7pa1mRt2adeTRRN%2Bdlg%3D%3D" target="_blank" rel="noopener">
+        <div class="newsletter-card-meta">2 months ago</div>
+        <div class="newsletter-card-title">Case Study: $16k From a Single Webinar Launch & A Low Number of Signups</div>
+        <div class="newsletter-card-cta">Read on LinkedIn →</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom:10px;">
+      Questions? <a href="https://www.linkedin.com/in/katyprodromou">Find me on LinkedIn</a> or email <a href="mailto:katy@revenuefunnels.online">katy@revenuefunnels.online</a>
+    </p>
+    <p>© 2025 Revenue Funnels Online · <a href="/index.html">Home</a> · <a href="/consultancy.html">Consultancy</a> · <a href="/audit.html">Revenue System Audit</a></p>
+  </footer>
+
+</body>
+</html>
